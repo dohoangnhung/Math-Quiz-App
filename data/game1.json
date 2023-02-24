@@ -1,0 +1,420 @@
+{
+  "question": [       
+    {
+      "point": "150",
+      "difficulty": "2",
+      "choice": [
+        {
+          "correct": "21 + 3",
+          "incorrect": 26
+        },
+        {
+          "correct": "20 - 2",
+          "incorrect": 21
+        },
+        {
+          "correct": 8,
+          "incorrect": "3 x 6"
+        },
+        {
+          "correct": "7",
+          "incorrect": "72 : 8"
+        },
+        {
+          "correct": "45",
+          "incorrect": "6 x 9"
+        },
+        {
+          "correct": "16 + 5",
+          "incorrect": 23
+        },
+        {
+          "correct": "12",
+          "incorrect": "18 - 5"
+        },
+        {
+          "correct": "56 : 7",
+          "incorrect": "9"
+        },
+        {
+          "correct": "18",
+          "incorrect": "4 x 7"
+        }
+      ]
+    },
+    {
+      "point": "200",
+      "difficulty": "3",
+      "choice": [
+        {
+          "correct": "7 x 3",
+          "incorrect": "18 + 4"
+        },
+        {
+          "correct": "26 : 2",
+          "incorrect": "20 + 2"
+        },
+        {
+          "correct": "8 + 8",
+          "incorrect": "25 - 6"
+        },
+        {
+          "correct": "22 / 2",
+          "incorrect": "3 * 7"
+        },
+        {
+          "correct": "16 - 4",
+          "incorrect": "28 : 2"
+        },
+        {
+          "correct": "19 - 5",
+          "incorrect": "15 + 2"
+        },
+        {
+          "correct": "48 : 6",
+          "incorrect": "19 - 8"
+        },
+        {
+          "correct": "3 x 5",
+          "incorrect": "12 + 4"
+        },
+        {
+          "correct": "27 + 4",
+          "incorrect": "8 x 4"
+        },
+        {
+          "correct": "2 x 7",
+          "incorrect": "22 - 7"
+        }
+      ]
+    },
+    {
+      "point": "300",
+      "difficulty": "4",
+      "choice": [
+        {
+          "correct": "(3 x 3) : 3",
+          "incorrect": "18 - 7"
+        },
+        {
+          "correct": "24 - 8",
+          "incorrect": "(23 + 3) - 3"
+        },
+        {
+          "correct": "12 + 6",
+          "incorrect": "(26 : 2) + 6"
+        },
+        {
+          "correct": "(21 - 4) - 4",
+          "incorrect": "28 : 2"
+        },
+        {
+          "correct": "3 x 9",
+          "incorrect": "(16 : 2) x 4"
+        },
+        {
+          "correct": "(25 - 2) + 4",
+          "incorrect": "21 + 8"
+        },
+        {
+          "correct": "(4 x 4) : 2",
+          "incorrect": "27 : 3"
+        },
+        {
+          "correct": "3 x 11",
+          "incorrect": "(15 - 6) x 4"
+        },
+        {
+          "correct": "4 x 7",
+          "incorrect": "(5 x 7) - 6"
+        },
+        {
+          "correct": "72 : 8",
+          "incorrect": "(28 : 4) + 4"
+        },
+        {
+          "correct": "6 x 6",
+          "incorrect": "(9 - 3) x 7"
+        },
+        {
+          "correct": "4 x 3",
+          "incorrect": "(17 + 3) - 5"
+        },
+        {
+          "correct": "15 - 8",
+          "incorrect": "(9 x 2) - 9"
+        },
+        {
+          "correct": "(8 + 4) + 2",
+          "incorrect": "9 x 2"
+        },
+        {
+          "correct": "26 + 4",
+          "incorrect": "(6 x 6) + 4"
+        },
+        {
+          "correct": "(24 : 4) x 3",
+          "incorrect": "21 - 3"
+        },
+        {
+          "correct": "15 : 5",
+          "incorrect": "(19 - 4) : 3"
+        },
+        {
+          "correct": "21 + 2",
+          "incorrect": "(32 : 4) x 3"
+        },
+        {
+          "correct": "20 + 6",
+          "incorrect": "(13 - 4) x 4"
+        },
+        {
+          "correct": "2 + 3",
+          "incorrect": "(19 - 7) : 2"
+        },
+        {
+          "correct": "(23 + 3) + 5",
+          "incorrect": "8 x 4"
+        },
+        {
+          "correct": "(27 : 3) + 8",
+          "incorrect": "9 x 3"
+        },
+        {
+          "correct": "(22 - 8) : 2",
+          "incorrect": "15 - 6"
+        },
+        {
+          "correct": "(14 + 4) : 2",
+          "incorrect": "27 - 8"
+        }
+      ]
+    },
+    {
+      "point": "400",
+      "difficulty": "5",
+      "choice": [
+        {
+          "correct": "(24 : 2) + 6",
+          "incorrect": "(15 + 4) + 5"
+        },
+        {
+          "correct": "(18 + 10) - 8",
+          "incorrect": "(12 + 8) + 2"
+        },
+        {
+          "correct": "(22 : 2) + 8",
+          "incorrect": "(25 - 5) + 8"
+        },
+        {
+          "correct": "(13 x 2) - 6",
+          "incorrect": "(16 : 4) x 7"
+        },
+        {
+          "correct": "(48 : 8) x 5",
+          "incorrect": "(25 : 5) x 8"
+        },
+        {
+          "correct": "(15 - 3) + 7",
+          "incorrect": "(22 + 3) - 5"
+        },
+        {
+          "correct": "(15 - 5) + 4",
+          "incorrect": "(27 : 3) + 6"
+        },
+        {
+          "correct": "(27 : 9) + 4",
+          "incorrect": "(28 + 4) : 4"
+        },
+        {
+          "correct": "(22 - 8) + 3",
+          "incorrect": "(24 : 4) x 3"
+        },
+        {
+          "correct": "(17 - 5) + 8",
+          "incorrect": "(2 x 9) + 4"
+        },
+        {
+          "correct": "(16 + 5) - 7",
+          "incorrect": "(6 x 2) + 4"
+        },
+        {
+          "correct": "(3 x 9) + 1",
+          "incorrect": "(6 x 4) + 5"
+        },
+        {
+          "correct": "(13 + 3) - 9",
+          "incorrect": "(2 + 2) x 2"
+        },
+        {
+          "correct": "(17 + 9) - 2",
+          "incorrect": "(15 + 4) + 8"
+        },
+        {
+          "correct": "(20 - 3) + 5",
+          "incorrect": "(7 x 3) + 2"
+        },
+        {
+          "correct": "(4 x 4) - 3",
+          "incorrect": "(63 : 9) + 8"
+        },
+        {
+          "correct": "(30 + 3) + 6",
+          "incorrect": "(15 : 3) x 8"
+        },
+        {
+          "correct": "(3 x 4) + 6",
+          "incorrect": "(6 x 3) + 2"
+        },
+        {
+          "correct": "(27 : 3) + 5",
+          "incorrect": "(10 + 8) - 3"
+        },
+        {
+          "correct": "(8 x 5) - 4",
+          "incorrect": "(9 x 4) + 2"
+        },
+        {
+          "correct": "(42 : 6) - 4",
+          "incorrect": "(10 - 3) - 2"
+        },
+        {
+          "correct": "(12 - 9) x 2",
+          "incorrect": "(36 : 4) - 1"
+        },
+        {
+          "correct": "(35 : 7) + 6",
+          "incorrect": "(4 x 6) - 5"
+        },
+        {
+          "correct": "(6 x 2) - 2",
+          "incorrect": "(28 : 4) + 5"
+        }
+      ]
+    },
+    {
+      "point": "500",
+      "difficulty": "6",
+      "choice": [
+        {
+          "correct": "((3 x 5) + 6) - 2",
+          "incorrect": "(15 x 2) - 1"
+        },
+        {
+          "correct": "((21 + 7) : 2) + 10",
+          "incorrect": "(27 + 2) - 1"
+        },
+        {
+          "correct": "((21 - 4) + 7) : 2",
+          "incorrect": "(7 x 2) + 4"
+        },
+        {
+          "correct": "((24 : 3) x 2) - 2",
+          "incorrect": "(18 + 5) - 2"
+        },
+        {
+          "correct": "(18 : 3) - 3",
+          "incorrect": "((4 x 6) : 2) - 3"
+        },
+        {
+          "correct": "((5 + 6) x 2) + 6",
+          "incorrect": "(20 : 5) x 8"
+        },
+        {
+          "correct": "((27 : 3) + 6) : 5",
+          "incorrect": "(2 + 2) + 2"
+        },
+        {
+          "correct": "((42 : 6) x 2) - 6",
+          "incorrect": "(9 x 2) - 4"
+        },
+        {
+          "correct": "(35 : 7) + 7",
+          "incorrect": "((24 + 3) x 9) + 6"
+        },
+        {
+          "correct": "(16 + 6) : 2",
+          "incorrect": "((15 - 3) x 2) - 8"
+        },
+        {
+          "correct": "((33 : 3) + 5) : 4",
+          "incorrect": "(19 - 7) - 5"
+        },
+        {
+          "correct": "((48 : 8) x 4) - 10",
+          "incorrect": "(22 + 3) - 4"
+        },
+        {
+          "correct": "((25 : 5) x 4) - 9",
+          "incorrect": "(16 + 3) - 7"
+        },
+        {
+          "correct": "(28 : 2) + 8",
+          "incorrect": "((35 : 5) x 3) + 6"
+        }
+      ]
+    },
+    {
+      "point": "600",
+      "difficulty": "7",
+      "choice": [
+        {
+          "correct": "((29 - 2) - 1) : 2",
+          "incorrect": "((21 + 7) : 2) + 3"
+        },
+        {
+          "correct": "((26 : 2) x 2) - 4",
+          "incorrect": "((2 x 7) + 9) + 1"
+        },
+        {
+          "correct": "((26 - 3) + 7) - 1",
+          "incorrect": "((18 : 2) x 3) + 3"
+        },
+        {
+          "correct": "((12 : 3) + 8) + 10",
+          "incorrect": "((26 - 2) + 6) - 1"
+        },
+        {
+          "correct": "((27 : 3) + 8) + 2",
+          "incorrect": "((20 - 2) + 6) - 2"
+        },
+        {
+          "correct": "((22 : 2) - 9) + 3",
+          "incorrect": "((36 : 6) x 2) + 5"
+        },
+        {
+          "correct": "((30 - 2) - 3) : 5",
+          "incorrect": "((3 x 6) - 2) - 9"
+        },
+        {
+          "correct": "((18 + 2) - 7) + 1",
+          "incorrect": "((7 x 3) - 6) + 3"
+        },
+        {
+          "correct": "((15 + 6) : 3) + 8",
+          "incorrect": "((13 + 3) : 4) x 5"
+        },
+        {
+          "correct": "((21 : 3) + 8) + 3",
+          "incorrect": "((26 - 2) x 6) + 11"
+        },
+        {
+          "correct": "((16 + 2) : 3 ) + 8",
+          "incorrect": "((32 : 4) x 3) - 3"
+        },
+        {
+          "correct": "((20 - 2) + 6) - 9",
+          "incorrect": "((12 : 3) + 8) + 18"
+        },
+        {
+          "correct": "((6 x 5) - 9) : 3",
+          "incorrect": "((42 : 6) x 3) - 4"
+        },
+        {
+          "correct": "((13 + 9) + 2) : 3",
+          "incorrect": "((23 + 4) : 3) + 7"
+        }
+      ]
+    }
+  ]
+}
