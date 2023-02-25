@@ -7,6 +7,7 @@ class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
+  // to animate progress bar
   late Animation _animation;
   Animation get animation => _animation;
 
@@ -38,7 +39,7 @@ class QuestionController extends GetxController
 
   @override
   void onInit() {
-    // Fill the progress bar within 60s
+    // fill the progress bar within 60s
     _animationController =
         AnimationController(duration: const Duration(seconds: 60), vsync: this);
     _animation = Tween<double>(begin: 0, end: 1).animate(_animationController)
@@ -46,7 +47,7 @@ class QuestionController extends GetxController
         update();
       });
 
-    // When 60s ends, go to the next question
+    // when 60s ends, go to the next question
     _animationController.forward().whenComplete(nextQuestion);
     _pageController = PageController();
     super.onInit();
@@ -68,10 +69,12 @@ class QuestionController extends GetxController
       _numOfCorrectAns++;
     }
 
+    // stop the progress bar
     _animationController.stop();
     update();
 
-    Future.delayed(const Duration(seconds: 3), () {
+    // wait 2 second before go to the next question
+    Future.delayed(const Duration(seconds: 2), () {
       nextQuestion();
     });
   }
@@ -82,8 +85,10 @@ class QuestionController extends GetxController
       _pageController.nextPage(
           duration: const Duration(milliseconds: 250), curve: Curves.ease);
 
+      // reset progress bar
       _animationController.reset();
 
+      // then start it agian
       _animationController.forward().whenComplete(nextQuestion);
     } else {
       // Get.to(ScoreScreen());

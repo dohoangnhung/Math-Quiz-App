@@ -16,9 +16,15 @@ class Game1Screen extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           actions: [
-            TextButton(
-              onPressed: _controller.nextQuestion,
-              child: const Text("Skip"),
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: TextButton(
+                onPressed: _controller.nextQuestion,
+                child: const Text(
+                  "Skip",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             )
           ],
         ),
