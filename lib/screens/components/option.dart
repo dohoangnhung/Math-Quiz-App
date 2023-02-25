@@ -35,12 +35,25 @@ class Option extends StatelessWidget {
             return getTheRightColor() == Colors.red ? Icons.close : Icons.done;
           }
 
+          Color fillOptionColor() {
+            if (qnController.isAnswered) {
+              if (index == qnController.correctAns) {
+                return const Color.fromARGB(255, 233, 241, 231);
+              } else if (index == qnController.selectedAns &&
+                  qnController.selectedAns != qnController.correctAns) {
+                return const Color.fromARGB(255, 245, 227, 227);
+              }
+            }
+            return Colors.white;
+          }
+
           return InkWell(
             onTap: press,
             child: Container(
               margin: const EdgeInsets.only(top: 20),
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
+                color: fillOptionColor(),
                 border: Border.all(color: getTheRightColor()),
                 borderRadius: BorderRadius.circular(15),
               ),
