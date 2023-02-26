@@ -11,35 +11,36 @@ class Game1Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     QuestionController _controller = Get.put(QuestionController());
     return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: TextButton(
-                onPressed: _controller.nextQuestion,
-                child: const Text(
-                  "Skip",
-                  style: TextStyle(color: Colors.white),
-                ),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: TextButton(
+              onPressed: _controller.nextQuestion,
+              child: const Text(
+                "Skip",
+                style: TextStyle(color: Colors.white),
               ),
-            )
-          ],
-        ),
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 58, 65, 127),
-                Color.fromARGB(255, 21, 23, 81),
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
             ),
+          )
+        ],
+      ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 58, 65, 127),
+              Color.fromARGB(255, 21, 23, 81),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
-          child: const Body(),
-        ));
+        ),
+        child: const Body(),
+      ),
+    );
   }
 }

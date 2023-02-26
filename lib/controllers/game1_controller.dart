@@ -73,8 +73,8 @@ class QuestionController extends GetxController
     _animationController.stop();
     update();
 
-    // wait 2 second before go to the next question
-    Future.delayed(const Duration(seconds: 2), () {
+    // wait 1500 milliseconds before go to the next question
+    Future.delayed(const Duration(milliseconds: 1500), () {
       nextQuestion();
     });
   }

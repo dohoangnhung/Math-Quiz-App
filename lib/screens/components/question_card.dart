@@ -38,7 +38,12 @@ class QuestionCard extends StatelessWidget {
             (index) => Option(
               index: index,
               text: question.options[index],
-              press: () => _controller.checkAns(question, index),
+              press: () => {
+                // only choose one option at a time
+                _controller.isAnswered == false
+                    ? _controller.checkAns(question, index)
+                    : null,
+              },
             ),
           ),
         ],
