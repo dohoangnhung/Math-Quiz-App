@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,14 +15,6 @@ class QuestionController extends GetxController
 
   late PageController _pageController;
   PageController get pageController => _pageController;
-
-  final List<Question> _questions = Question.data
-      .map(
-        (question) => Question(question['id'], question['level'],
-            question['point'], question['options'], question['answer_index']),
-      )
-      .toList();
-  List<Question> get questions => _questions;
 
   bool _isAnswered = false;
   bool get isAnswered => _isAnswered;
@@ -60,6 +54,28 @@ class QuestionController extends GetxController
     _pageController.dispose();
   }
 
+  // generate question set to display in the game
+  Set<Question> getQuestions() {
+    Set<Question> playQuestions = {};
+    List<Question> allQuestions = Question.data
+        .map(
+          (question) => Question(question['id'], question['level'],
+              question['point'], question['options'], question['answer_index']),
+        )
+        .toList();
+
+    for (int i = 0; i < 5; i++) {
+      int index = Random().nextInt(30) + 0;
+      playQuestions.add(allQuestions[index]);
+    }
+
+    for (Question question in playQuestions) {
+      print(question.options);
+    }
+
+    return playQuestions;
+  }
+
   void checkAns(Question question, int selectedInx) {
     _isAnswered = true;
     _correctAns = question.answerIndex;
@@ -80,7 +96,7 @@ class QuestionController extends GetxController
   }
 
   void nextQuestion() {
-    if (_questionNumber.value != _questions.length) {
+    if (_questionNumber.value != getQuestions().length) {
       _isAnswered = false;
       _pageController.nextPage(
           duration: const Duration(milliseconds: 250), curve: Curves.ease);

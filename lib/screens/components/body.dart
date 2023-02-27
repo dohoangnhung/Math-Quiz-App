@@ -4,12 +4,16 @@ import 'package:math_quiz/controllers/game1_controller.dart';
 import 'package:math_quiz/screens/components/progress_bar.dart';
 import 'package:math_quiz/screens/components/question_card.dart';
 
+import '../../models/game1_data.dart';
+
 class Body extends StatelessWidget {
   const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
     QuestionController _questionController = Get.put(QuestionController());
+    final Set<Question> questionSet = _questionController.getQuestions();
+
     return Stack(
       children: [
         SafeArea(
@@ -34,7 +38,7 @@ class Body extends StatelessWidget {
                               color: const Color.fromRGBO(139, 148, 188, 1)),
                       children: [
                         TextSpan(
-                          text: "/${_questionController.questions.length}",
+                          text: "/${questionSet.length}",
                           style: Theme.of(context)
                               .textTheme
                               .headlineSmall!
@@ -57,9 +61,9 @@ class Body extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   controller: _questionController.pageController,
                   onPageChanged: _questionController.updateQuestionNumber,
-                  itemCount: _questionController.questions.length,
+                  itemCount: questionSet.length,
                   itemBuilder: (context, index) => QuestionCard(
-                    question: _questionController.questions[index],
+                    question: questionSet.elementAt(index),
                   ),
                 ),
               ),
