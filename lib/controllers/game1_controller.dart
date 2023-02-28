@@ -64,7 +64,7 @@ class QuestionController extends GetxController
         )
         .toList();
 
-    for (int i = 0; i < 5; i++) {
+    while (playQuestions.length < 5) {
       int index = Random().nextInt(30) + 0;
       playQuestions.add(allQuestions[index]);
     }
@@ -72,6 +72,8 @@ class QuestionController extends GetxController
     for (Question question in playQuestions) {
       print(question.options);
     }
+
+    print('-----------');
 
     return playQuestions;
   }
