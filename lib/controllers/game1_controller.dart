@@ -69,12 +69,6 @@ class QuestionController extends GetxController
       playQuestions.add(allQuestions[index]);
     }
 
-    for (Question question in playQuestions) {
-      print(question.options);
-    }
-
-    print('-----------');
-
     return playQuestions;
   }
 
