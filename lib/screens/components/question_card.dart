@@ -2,11 +2,11 @@ import "package:flutter/material.dart";
 import "package:get/get.dart";
 import "package:math_quiz/controllers/game1_controller.dart";
 
-import "../../models/game1_data.dart";
+import "../../models/game1_data_generator.dart";
 import "option.dart";
 
 class QuestionCard extends StatelessWidget {
-  final Question question;
+  final List<Pair> question;
 
   const QuestionCard({
     Key? key,
@@ -34,10 +34,10 @@ class QuestionCard extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           ...List.generate(
-            question.options.length,
+            question.length,
             (index) => Option(
               index: index,
-              text: question.options[index],
+              text: question[index].exp,
               press: () => {
                 // only choose one option at a time
                 _controller.isAnswered == false

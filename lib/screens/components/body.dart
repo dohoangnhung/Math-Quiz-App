@@ -4,7 +4,7 @@ import 'package:math_quiz/controllers/game1_controller.dart';
 import 'package:math_quiz/screens/components/progress_bar.dart';
 import 'package:math_quiz/screens/components/question_card.dart';
 
-import '../../models/game1_data.dart';
+import '../../models/game1_data_generator.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -12,7 +12,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     QuestionController _questionController = Get.put(QuestionController());
-    final Set<Question> questionSet = _questionController.getQuestions();
+    final List<List<Pair>> questionSet = _questionController.getQuestions();
 
     return Stack(
       children: [
@@ -63,7 +63,7 @@ class Body extends StatelessWidget {
                   onPageChanged: _questionController.updateQuestionNumber,
                   itemCount: questionSet.length,
                   itemBuilder: (context, index) => QuestionCard(
-                    question: questionSet.elementAt(index),
+                    question: questionSet[index],
                   ),
                 ),
               ),

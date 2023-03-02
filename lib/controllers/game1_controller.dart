@@ -1,9 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../models/game1_data.dart';
+import '../models/game1_data_generator.dart';
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -31,6 +29,8 @@ class QuestionController extends GetxController
   int _numOfCorrectAns = 0;
   int get numOfCorrectAns => _numOfCorrectAns;
 
+  Game1DataGenerator dataGenerator = Get.put(Game1DataGenerator());
+
   @override
   void onInit() {
     // fill the progress bar within 60s
@@ -55,27 +55,40 @@ class QuestionController extends GetxController
   }
 
   // generate question set to display in the game
-  Set<Question> getQuestions() {
-    Set<Question> playQuestions = {};
-    List<Question> allQuestions = Question.data
-        .map(
-          (question) => Question(question['id'], question['level'],
-              question['point'], question['options'], question['answer_index']),
-        )
-        .toList();
+  List<List<Pair>> getQuestions() {
+    List<List<Pair>> playQuestions = [];
 
-    while (playQuestions.length < 5) {
-      int index = Random().nextInt(30) + 0;
-      playQuestions.add(allQuestions[index]);
+    for (int i = 0; i < 5; i++) {
+      playQuestions.add(dataGenerator.genQuestionLv1);
     }
-
+    for (int i = 0; i < 9; i++) {
+      playQuestions.add(dataGenerator.genQuestionLv2);
+    }
+    for (int i = 0; i < 10; i++) {
+      playQuestions.add(dataGenerator.genQuestionLv3);
+    }
+    for (int i = 0; i < 24; i++) {
+      playQuestions.add(dataGenerator.genQuestionLv4);
+    }
+    for (int i = 0; i < 24; i++) {
+      playQuestions.add(dataGenerator.genQuestionLv5);
+    }
     return playQuestions;
   }
 
-  void checkAns(Question question, int selectedInx) {
+  void checkAns(List<Pair> options, int selectedInx) {
     _isAnswered = true;
-    _correctAns = question.answerIndex;
     _selectedAns = selectedInx;
+
+    // check which option is correct
+    int opt1 = options[0].value;
+    int opt2 = options[1].value;
+    if (opt1 < opt2) {
+      _correctAns = 0;
+    }
+    if (opt1 > opt2) {
+      _correctAns = 1;
+    }
 
     if (_selectedAns == _correctAns) {
       _numOfCorrectAns++;
