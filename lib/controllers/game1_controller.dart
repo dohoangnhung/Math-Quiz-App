@@ -31,11 +31,16 @@ class QuestionController extends GetxController
 
   Game1DataGenerator dataGenerator = Get.put(Game1DataGenerator());
 
+  int playTime = 60;
+
+  bool consecutive = false;
+  int consecutiveCorrectTimes = 0;
+
   @override
   void onInit() {
     // fill the progress bar within 60s
     _animationController =
-        AnimationController(duration: const Duration(seconds: 60), vsync: this);
+        AnimationController(duration: Duration(seconds: playTime), vsync: this);
     _animation = Tween<double>(begin: 0, end: 1).animate(_animationController)
       ..addListener(() {
         update();
@@ -92,6 +97,24 @@ class QuestionController extends GetxController
 
     if (_selectedAns == _correctAns) {
       _numOfCorrectAns++;
+      consecutive = true;
+    } else {
+      consecutive = false;
+      // for each incorrect ans => minus play time by 2s
+      playTime -= 2;
+    }
+
+    // to keep track the number of correct answer in a row
+    if (consecutive == true) {
+      consecutiveCorrectTimes++;
+    } else {
+      consecutiveCorrectTimes = 0;
+    }
+
+    // 5 correct ans in a row => add 10s to play time
+    if (consecutiveCorrectTimes == 5) {
+      playTime += 10;
+      consecutiveCorrectTimes = 0;
     }
 
     // stop the progress bar
