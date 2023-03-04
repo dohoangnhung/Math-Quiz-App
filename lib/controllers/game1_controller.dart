@@ -36,6 +36,9 @@ class QuestionController extends GetxController
   bool consecutive = false;
   int consecutiveCorrectTimes = 0;
 
+  List<int> pointList = [];
+  int point = 0;
+
   @override
   void onInit() {
     // fill the progress bar within 60s
@@ -65,18 +68,23 @@ class QuestionController extends GetxController
 
     for (int i = 0; i < 5; i++) {
       playQuestions.add(dataGenerator.genQuestionLv1);
+      pointList.add(100);
     }
     for (int i = 0; i < 9; i++) {
       playQuestions.add(dataGenerator.genQuestionLv2);
+      pointList.add(150);
     }
     for (int i = 0; i < 10; i++) {
       playQuestions.add(dataGenerator.genQuestionLv3);
+      pointList.add(200);
     }
     for (int i = 0; i < 24; i++) {
       playQuestions.add(dataGenerator.genQuestionLv4);
+      pointList.add(300);
     }
     for (int i = 0; i < 24; i++) {
       playQuestions.add(dataGenerator.genQuestionLv5);
+      pointList.add(400);
     }
     return playQuestions;
   }
@@ -98,6 +106,7 @@ class QuestionController extends GetxController
     if (_selectedAns == _correctAns) {
       _numOfCorrectAns++;
       consecutive = true;
+      point += pointList[_questionNumber.value - 1];
     } else {
       consecutive = false;
       // for each incorrect ans => minus play time by 2s
