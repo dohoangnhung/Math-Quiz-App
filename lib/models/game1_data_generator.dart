@@ -16,39 +16,33 @@ class Game1DataGenerator {
     late int result;
 
     if (op == '+') {
-      do {
-        num1 = Random().nextInt(100) + 1;
-        num2 = Random().nextInt(100) + 1;
-      } while (num1 + num2 >= 100);
+      num1 = Random().nextInt(21) + 10;
+      num2 = Random().nextInt(9) + 1;
       result = num1 + num2;
     }
 
     if (op == '-') {
-      do {
-        num1 = Random().nextInt(100) + 1;
-        num2 = Random().nextInt(100) + 1;
-      } while (num1 < num2);
+      num1 = Random().nextInt(21) + 10;
+      num2 = Random().nextInt(9) + 1;
       result = num1 - num2;
     }
 
     if (op == 'x') {
-      do {
-        num1 = Random().nextInt(100) + 1;
-        num2 = Random().nextInt(100) + 1;
-      } while (num1 * num2 >= 100);
+      num1 = Random().nextInt(9) + 1;
+      num2 = Random().nextInt(8) + 2;
       result = num1 * num2;
     }
 
     if (op == ':') {
       // check if the dividend is an prime number
       do {
-        num1 = Random().nextInt(100) + 1;
-        num2 = Random().nextInt(100) + 1;
+        num1 = Random().nextInt(96) + 4;
+        num2 = Random().nextInt(8) + 2;
       } while (isPrime(num1));
 
-      // to ensure that dividend % divisor == 0
-      if (num1 % num2 != 0) {
-        for (int i = num2 - 1; i > 0; i--) {
+      // to ensure that dividend % divisor == 0 and dividend != divisor
+      if (num1 % num2 != 0 || num1 == num2) {
+        for (int i = num2 - 1; i > 1; i--) {
           if (num1 % i == 0) {
             num2 = i;
             break;
@@ -73,11 +67,9 @@ class Game1DataGenerator {
     int prvResult;
 
     if (op == '+') {
-      do {
-        genPrvTwoNumExp = generateTwoNumExp;
-        prvResult = genPrvTwoNumExp.value;
-        num = Random().nextInt(100) + 1;
-      } while (prvResult + num >= 100);
+      genPrvTwoNumExp = generateTwoNumExp;
+      prvResult = genPrvTwoNumExp.value;
+      num = Random().nextInt(9) + 1;
       result = prvResult + num;
     }
 
@@ -85,7 +77,7 @@ class Game1DataGenerator {
       do {
         genPrvTwoNumExp = generateTwoNumExp;
         prvResult = genPrvTwoNumExp.value;
-        num = Random().nextInt(100) + 1;
+        num = Random().nextInt(9) + 1;
       } while (prvResult < num);
       result = prvResult - num;
     }
@@ -94,7 +86,7 @@ class Game1DataGenerator {
       do {
         genPrvTwoNumExp = generateTwoNumExp;
         prvResult = genPrvTwoNumExp.value;
-        num = Random().nextInt(100) + 1;
+        num = Random().nextInt(8) + 2;
       } while (prvResult * num >= 100);
       result = prvResult * num;
     }
@@ -104,12 +96,12 @@ class Game1DataGenerator {
       do {
         genPrvTwoNumExp = generateTwoNumExp;
         prvResult = genPrvTwoNumExp.value;
-        num = Random().nextInt(100) + 1;
+        num = Random().nextInt(8) + 2;
       } while (isPrime(prvResult));
 
       // to ensure that dividend % divisor == 0
-      if (prvResult % num != 0) {
-        for (int i = num - 1; i > 0; i--) {
+      if (prvResult % num != 0 || prvResult == num) {
+        for (int i = num - 1; i > 1; i--) {
           if (prvResult % i == 0) {
             num = i;
             break;
