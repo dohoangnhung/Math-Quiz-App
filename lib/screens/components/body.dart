@@ -20,6 +20,56 @@ class Body extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 10,
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            'assets/medal.png',
+                            scale: 1.9,
+                          ),
+                          Obx(
+                            () => Text.rich(
+                              TextSpan(
+                                text: ' ĐIỂM SỐ ',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall!
+                                    .copyWith(
+                                        color: const Color.fromRGBO(
+                                            139, 148, 188, 1)),
+                                children: [
+                                  TextSpan(
+                                    text: "${_questionController.getPoint}",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium!
+                                        .copyWith(
+                                            color: const Color.fromRGBO(
+                                                139, 148, 188, 1)),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: ProgressBar(),
@@ -30,7 +80,7 @@ class Body extends StatelessWidget {
                 child: Obx(
                   () => Text.rich(
                     TextSpan(
-                      text: "Question ${_questionController.questionNumber}",
+                      text: "Câu hỏi ${_questionController.questionNumber}",
                       style: Theme.of(context)
                           .textTheme
                           .headlineLarge!

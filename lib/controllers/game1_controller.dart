@@ -37,7 +37,8 @@ class QuestionController extends GetxController
   int consecutiveCorrectTimes = 0;
 
   List<int> pointList = [];
-  int point = 0;
+  RxInt point = 0.obs;
+  RxInt get getPoint => point;
 
   @override
   void onInit() {

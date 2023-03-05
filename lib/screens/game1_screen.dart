@@ -15,13 +15,22 @@ class Game1Screen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        leading: TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Image.asset(
+            'assets/go-back.png',
+            scale: 2.5,
+          ),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: TextButton(
               onPressed: _controller.nextQuestion,
               child: const Text(
-                "Skip",
+                "Bỏ qua",
                 style: TextStyle(color: Colors.white),
               ),
             ),

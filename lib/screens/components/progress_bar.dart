@@ -43,7 +43,7 @@ class ProgressBar extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "${(controller.animation.value * controller.playTime).round()} sec",
+                        "${(controller.animation.value * controller.playTime).round()} giây",
                       ),
                       Image.asset("assets/clock.png", scale: 1.4),
                     ],

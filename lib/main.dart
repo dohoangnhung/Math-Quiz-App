@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:math_quiz/navigator.dart';
 import 'package:math_quiz/screens/game1_screen.dart';
 
 void main() {
