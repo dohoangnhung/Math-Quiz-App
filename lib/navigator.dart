@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_quiz/screens/ready_dialog.dart';
 import 'package:math_quiz/screens/game1_screen.dart';
 
 class NavigatorPage extends StatelessWidget {
@@ -16,7 +17,7 @@ class NavigatorPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Game1Screen(),
+                    builder: (context) => const ReadyDialog(),
                   ),
                 );
               },

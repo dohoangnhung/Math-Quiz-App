@@ -17,7 +17,7 @@ class Game1Screen extends StatelessWidget {
         elevation: 0,
         leading: TextButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.of(context).popUntil((route) => route.isFirst);
           },
           child: Image.asset(
             'assets/go-back.png',
