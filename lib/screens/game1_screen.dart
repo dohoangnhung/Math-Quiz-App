@@ -18,6 +18,8 @@ class Game1Screen extends StatelessWidget {
         leading: TextButton(
           onPressed: () {
             Navigator.of(context).popUntil((route) => route.isFirst);
+            _controller.reset();
+            Get.back();
           },
           child: Image.asset(
             'assets/go-back.png',

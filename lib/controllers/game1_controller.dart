@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../models/game1_data_generator.dart';
+import '../screens/congratulation_screen.dart';
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -61,6 +62,18 @@ class QuestionController extends GetxController
     super.onClose();
     _animationController.dispose();
     _pageController.dispose();
+  }
+
+  // reset all variables when the game is reseted
+  void reset() {
+    _questionNumber = 1.obs;
+    _numOfCorrectAns = 0;
+    dataGenerator = Get.put(Game1DataGenerator());
+    playTime = 60;
+    consecutive = false;
+    consecutiveCorrectTimes = 0;
+    pointList = [];
+    point = 0.obs;
   }
 
   // generate question set to display in the game
@@ -149,7 +162,7 @@ class QuestionController extends GetxController
       // then start it agian
       _animationController.forward().whenComplete(nextQuestion);
     } else {
-      // Get.to(ScoreScreen());
+      Get.to(const CongratulationScreen());
     }
   }
 

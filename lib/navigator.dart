@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:math_quiz/screens/ready_dialog.dart';
+import 'package:math_quiz/screens/ready_screen.dart';
 import 'package:math_quiz/screens/game1_screen.dart';
 
 class NavigatorPage extends StatelessWidget {
