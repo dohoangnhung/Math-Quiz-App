@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:math_quiz/screens/ready_screen.dart';
 import 'package:math_quiz/screens/game1_screen.dart';
 
@@ -14,12 +15,7 @@ class NavigatorPage extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ReadyDialog(),
-                  ),
-                );
+                Get.to(() => const ReadyDialog());
               },
               child: const Text('Game 1'),
             ),

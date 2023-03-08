@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:math_quiz/controllers/game1_controller.dart';
 
+import '../navigator.dart';
 import 'components/body.dart';
 
 class Game1Screen extends StatelessWidget {
@@ -17,9 +18,7 @@ class Game1Screen extends StatelessWidget {
         elevation: 0,
         leading: TextButton(
           onPressed: () {
-            Navigator.of(context).popUntil((route) => route.isFirst);
-            _controller.reset();
-            Get.back();
+            Get.off(() => const NavigatorPage());
           },
           child: Image.asset(
             'assets/go-back.png',

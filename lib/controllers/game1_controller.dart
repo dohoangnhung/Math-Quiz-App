@@ -41,6 +41,9 @@ class QuestionController extends GetxController
   RxInt point = 0.obs;
   RxInt get getPoint => point;
 
+  int _totalResponseTime = 0;
+  int get totalResponseTime => _totalResponseTime;
+
   @override
   void onInit() {
     // fill the progress bar within 60s
@@ -59,44 +62,32 @@ class QuestionController extends GetxController
 
   @override
   void onClose() {
-    super.onClose();
     _animationController.dispose();
     _pageController.dispose();
-  }
-
-  // reset all variables when the game is reseted
-  void reset() {
-    _questionNumber = 1.obs;
-    _numOfCorrectAns = 0;
-    dataGenerator = Get.put(Game1DataGenerator());
-    playTime = 60;
-    consecutive = false;
-    consecutiveCorrectTimes = 0;
-    pointList = [];
-    point = 0.obs;
+    super.onClose();
   }
 
   // generate question set to display in the game
   List<List<Pair>> getQuestions() {
     List<List<Pair>> playQuestions = [];
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 1; i++) {
       playQuestions.add(dataGenerator.genQuestionLv1);
       pointList.add(100);
     }
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < 1; i++) {
       playQuestions.add(dataGenerator.genQuestionLv2);
       pointList.add(150);
     }
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 1; i++) {
       playQuestions.add(dataGenerator.genQuestionLv3);
       pointList.add(200);
     }
-    for (int i = 0; i < 24; i++) {
+    for (int i = 0; i < 1; i++) {
       playQuestions.add(dataGenerator.genQuestionLv4);
       pointList.add(300);
     }
-    for (int i = 0; i < 24; i++) {
+    for (int i = 0; i < 1; i++) {
       playQuestions.add(dataGenerator.genQuestionLv5);
       pointList.add(400);
     }
@@ -162,7 +153,7 @@ class QuestionController extends GetxController
       // then start it agian
       _animationController.forward().whenComplete(nextQuestion);
     } else {
-      Get.to(const CongratulationScreen());
+      Get.to(() => const CongratulationScreen());
     }
   }
 

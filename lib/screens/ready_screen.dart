@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'dart:async';
 
 import 'package:lottie/lottie.dart';
@@ -17,8 +18,7 @@ class _ReadyDialogState extends State<ReadyDialog> {
   void initState() {
     super.initState();
     Timer(const Duration(milliseconds: 5430), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (_) => const Game1Screen()));
+      Get.to(() => const Game1Screen());
     });
   }
 
