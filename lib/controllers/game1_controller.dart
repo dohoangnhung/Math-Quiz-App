@@ -41,6 +41,7 @@ class QuestionController extends GetxController
   RxInt point = 0.obs;
   RxInt get getPoint => point;
 
+  int _responseTime = 0;
   int _totalResponseTime = 0;
   int get totalResponseTime => _totalResponseTime;
 
@@ -97,6 +98,10 @@ class QuestionController extends GetxController
   void checkAns(List<Pair> options, int selectedInx) {
     _isAnswered = true;
     _selectedAns = selectedInx;
+
+    // calculate total reponse time on the whole question set
+    _responseTime = (animation.value * playTime).round();
+    _totalResponseTime += _responseTime;
 
     // check which option is correct
     int opt1 = options[0].value;

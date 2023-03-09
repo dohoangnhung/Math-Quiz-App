@@ -70,7 +70,7 @@ class _ReadyDialogState extends State<CongratulationScreen> {
                 child: AnimatedTextKit(
                   animatedTexts: [
                     TyperAnimatedText(
-                      'Điểm: ${_questionController.getPoint}\nSố câu đúng: ${_questionController.numOfCorrectAns}/100\nThời gian chơi: ${_questionController.totalResponseTime}',
+                      'Điểm: ${_questionController.getPoint}\nSố câu đúng: ${_questionController.numOfCorrectAns}/100\nThời gian chơi: ${_questionController.totalResponseTime} giây',
                       textStyle: const TextStyle(
                         color: Colors.white,
                         fontSize: 18,
