@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   lottie: ^2.2.0
   animated_text_kit: ^4.2.2
+  quickalert: ^1.0.1
+  fluttertoast: ^8.2.1
   http:
 
 dev_dependencies:

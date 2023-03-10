@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:math_quiz/controllers/game1_controller.dart';
+import 'package:quickalert/quickalert.dart';
 
 import '../navigator.dart';
 import 'components/body.dart';
@@ -18,7 +19,32 @@ class Game1Screen extends StatelessWidget {
         elevation: 0,
         leading: TextButton(
           onPressed: () {
-            Get.off(() => const NavigatorPage());
+            QuickAlert.show(
+              context: context,
+              type: QuickAlertType.warning,
+              title: 'Cảnh báo',
+              text: 'Bạn có muốn thoát khỏi trò chơi?',
+              textColor: const Color.fromARGB(255, 60, 60, 60),
+              confirmBtnText: 'Có',
+              confirmBtnColor: const Color.fromARGB(255, 4, 114, 117),
+              onConfirmBtnTap: () {
+                Get.offAll(() => const NavigatorPage());
+              },
+              confirmBtnTextStyle: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.normal,
+              ),
+              showCancelBtn: true,
+              cancelBtnText: 'Không',
+              onCancelBtnTap: () {
+                Get.back();
+              },
+              cancelBtnTextStyle: const TextStyle(
+                color: Colors.grey,
+                fontSize: 18,
+                fontWeight: FontWeight.normal,
+              ),
+            );
           },
           child: Image.asset(
             'assets/go-back.png',
