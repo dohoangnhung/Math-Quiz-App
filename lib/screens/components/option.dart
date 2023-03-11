@@ -83,6 +83,7 @@ class Option extends StatelessWidget {
                     child: Icon(
                       getTheRightIcon(),
                       size: 16,
+                      color: Colors.white,
                     ),
                   ),
                 ],

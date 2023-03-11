@@ -44,6 +44,9 @@ class ProgressBar extends StatelessWidget {
                     children: [
                       Text(
                         "${(controller.animation.value * controller.playTime).round()} giây",
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
                       ),
                       Image.asset("assets/clock.png", scale: 1.4),
                     ],

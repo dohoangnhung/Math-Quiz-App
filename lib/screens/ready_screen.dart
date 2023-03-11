@@ -39,7 +39,6 @@ class _ReadyDialogState extends State<ReadyDialog> {
                 TypewriterAnimatedText(
                   'Bạn đã sẵn sàng?',
                   textStyle: const TextStyle(
-                    color: Colors.white,
                     fontSize: 22,
                   ),
                   speed: const Duration(milliseconds: 100),

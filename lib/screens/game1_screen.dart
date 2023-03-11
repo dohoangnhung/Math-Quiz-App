@@ -31,6 +31,7 @@ class Game1Screen extends StatelessWidget {
                 Get.offAll(() => const NavigatorPage());
               },
               confirmBtnTextStyle: const TextStyle(
+                color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.normal,
               ),

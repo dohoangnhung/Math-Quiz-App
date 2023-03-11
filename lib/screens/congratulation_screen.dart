@@ -43,7 +43,6 @@ class _ReadyDialogState extends State<CongratulationScreen> {
                       'Chúc Mừng Bạn Đã Hoàn Thành \n Tất Cả Vòng Chơi!',
                       colors: colorizeColors,
                       textStyle: const TextStyle(
-                        color: Colors.white,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
@@ -72,7 +71,6 @@ class _ReadyDialogState extends State<CongratulationScreen> {
                     TyperAnimatedText(
                       'Điểm: ${_questionController.getPoint}\nSố câu đúng: ${_questionController.numOfCorrectAns}/100\nThời gian chơi: ${_questionController.totalResponseTime} giây',
                       textStyle: const TextStyle(
-                        color: Colors.white,
                         fontSize: 18,
                         letterSpacing: 1.3,
                         height: 1.5,
