@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import '../models/game1_data_generator.dart';
@@ -121,6 +122,14 @@ class QuestionController extends GetxController
       consecutive = false;
       // for each incorrect ans => minus play time by 2s
       playTime -= 2;
+      Fluttertoast.showToast(
+        msg: '-2 giây',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 2,
+        backgroundColor: const Color.fromARGB(255, 197, 52, 42),
+        textColor: Colors.white,
+      );
     }
 
     // to keep track the number of correct answer in a row
@@ -134,6 +143,14 @@ class QuestionController extends GetxController
     if (consecutiveCorrectTimes == 5) {
       playTime += 10;
       consecutiveCorrectTimes = 0;
+      Fluttertoast.showToast(
+        msg: '+10 giây',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 2,
+        backgroundColor: const Color.fromARGB(255, 25, 132, 29),
+        textColor: Colors.white,
+      );
     }
 
     // stop the progress bar
