@@ -24,29 +24,34 @@ class _ReadyDialogState extends State<ReadyDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Lottie.asset(
-              'assets/ready.json',
-              repeat: false,
-            ),
-            AnimatedTextKit(
-              animatedTexts: [
-                TypewriterAnimatedText(
-                  'Bạn đã sẵn sàng?',
-                  textStyle: const TextStyle(
-                    fontSize: 22,
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Lottie.asset(
+                'assets/ready.json',
+                repeat: false,
+              ),
+              AnimatedTextKit(
+                animatedTexts: [
+                  TypewriterAnimatedText(
+                    'Bạn đã sẵn sàng?',
+                    textStyle: const TextStyle(
+                      fontSize: 22,
+                    ),
+                    speed: const Duration(milliseconds: 100),
                   ),
-                  speed: const Duration(milliseconds: 100),
-                ),
-              ],
-              isRepeatingAnimation: false,
-            )
-          ],
+                ],
+                isRepeatingAnimation: false,
+              )
+            ],
+          ),
         ),
       ),
     );
