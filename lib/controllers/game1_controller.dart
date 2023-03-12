@@ -73,23 +73,23 @@ class QuestionController extends GetxController
   List<List<Pair>> getQuestions() {
     List<List<Pair>> playQuestions = [];
 
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 5; i++) {
       playQuestions.add(dataGenerator.genQuestionLv1);
       pointList.add(100);
     }
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 9; i++) {
       playQuestions.add(dataGenerator.genQuestionLv2);
       pointList.add(150);
     }
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 10; i++) {
       playQuestions.add(dataGenerator.genQuestionLv3);
       pointList.add(200);
     }
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 24; i++) {
       playQuestions.add(dataGenerator.genQuestionLv4);
       pointList.add(300);
     }
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 24; i++) {
       playQuestions.add(dataGenerator.genQuestionLv5);
       pointList.add(400);
     }
