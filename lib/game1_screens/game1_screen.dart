@@ -4,14 +4,14 @@ import 'package:math_quiz/controllers/game1_controller.dart';
 import 'package:quickalert/quickalert.dart';
 
 import '../navigator.dart';
-import 'components/body.dart';
+import 'components/g1_body.dart';
 
 class Game1Screen extends StatelessWidget {
   const Game1Screen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    QuestionController _controller = Get.put(QuestionController());
+    Game1Controller _controller = Get.put(Game1Controller());
     return WillPopScope(
       onWillPop: () async {
         QuickAlert.show(

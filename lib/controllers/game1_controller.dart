@@ -3,9 +3,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import '../models/game1_data_generator.dart';
-import '../screens/congratulation_screen.dart';
+import '../game1_screens/g1_congratulation_screen.dart';
 
-class QuestionController extends GetxController
+class Game1Controller extends GetxController
     with GetSingleTickerProviderStateMixin {
   late AnimationController _animationController;
 

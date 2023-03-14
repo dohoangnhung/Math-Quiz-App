@@ -4,16 +4,16 @@ import 'package:get/get.dart';
 import 'dart:async';
 
 import 'package:lottie/lottie.dart';
-import 'package:math_quiz/screens/game1_screen.dart';
+import 'package:math_quiz/game1_screens/game1_screen.dart';
 
-class ReadyDialog extends StatefulWidget {
-  const ReadyDialog({super.key});
+class Game1ReadyScreen extends StatefulWidget {
+  const Game1ReadyScreen({super.key});
 
   @override
-  State<ReadyDialog> createState() => _ReadyDialogState();
+  State<Game1ReadyScreen> createState() => _ReadyDialogState();
 }
 
-class _ReadyDialogState extends State<ReadyDialog> {
+class _ReadyDialogState extends State<Game1ReadyScreen> {
   @override
   void initState() {
     super.initState();

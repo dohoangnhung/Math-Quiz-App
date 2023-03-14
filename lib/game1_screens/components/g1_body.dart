@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:math_quiz/controllers/game1_controller.dart';
-import 'package:math_quiz/screens/components/progress_bar.dart';
-import 'package:math_quiz/screens/components/question_card.dart';
+import 'package:math_quiz/game1_screens/components/g1_progress_bar.dart';
+import 'package:math_quiz/game1_screens/components/g1_question_card.dart';
 
 import '../../models/game1_data_generator.dart';
 
@@ -11,7 +11,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    QuestionController _questionController = Get.put(QuestionController());
+    Game1Controller _questionController = Get.put(Game1Controller());
     final List<List<Pair>> questionSet = _questionController.getQuestions();
 
     return Stack(

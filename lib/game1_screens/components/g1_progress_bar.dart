@@ -15,7 +15,7 @@ class ProgressBar extends StatelessWidget {
             Border.all(color: const Color.fromRGBO(63, 71, 104, 1), width: 2),
         borderRadius: BorderRadius.circular(50),
       ),
-      child: GetBuilder<QuestionController>(
+      child: GetBuilder<Game1Controller>(
         builder: (controller) {
           return Stack(
             children: [

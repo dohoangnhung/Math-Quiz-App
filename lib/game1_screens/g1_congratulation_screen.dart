@@ -17,7 +17,7 @@ class CongratulationScreen extends StatefulWidget {
 class _ReadyDialogState extends State<CongratulationScreen> {
   @override
   Widget build(BuildContext context) {
-    QuestionController _questionController = Get.put(QuestionController());
+    Game1Controller _questionController = Get.put(Game1Controller());
 
     const colorizeColors = [
       Color.fromARGB(255, 201, 51, 51),

@@ -1,9 +1,10 @@
+
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 import "package:math_quiz/controllers/game1_controller.dart";
 
-import "../../models/game1_data_generator.dart";
-import "option.dart";
+import '../../models/game1_data_generator.dart';
+import 'g1_option.dart';
 
 class QuestionCard extends StatelessWidget {
   final List<Pair> question;
@@ -15,7 +16,7 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    QuestionController _controller = Get.put(QuestionController());
+    Game1QuestionController _controller = Get.put(Game1QuestionController());
     return Container(
       margin: const EdgeInsets.fromLTRB(20, 20, 20, 30),
       padding: const EdgeInsets.all(20),
