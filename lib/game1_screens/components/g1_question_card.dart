@@ -1,4 +1,3 @@
-
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 import "package:math_quiz/controllers/game1_controller.dart";
@@ -16,7 +15,7 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Game1QuestionController _controller = Get.put(Game1QuestionController());
+    Game1Controller _controller = Get.put(Game1Controller());
     return Container(
       margin: const EdgeInsets.fromLTRB(20, 20, 20, 30),
       padding: const EdgeInsets.all(20),

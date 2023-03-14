@@ -42,13 +42,14 @@ class Game1DataGenerator {
 
       // to ensure that dividend % divisor == 0 and dividend != divisor
       if (num1 % num2 != 0 || num1 == num2) {
-        for (int i = num2 - 1; i > 1; i--) {
+        for (int i = 9; i > 1; i--) {
           if (num1 % i == 0) {
             num2 = i;
             break;
           }
         }
       }
+
       result = num1 ~/ num2;
     }
     return Pair('$num1 $op $num2', result);
@@ -101,7 +102,7 @@ class Game1DataGenerator {
 
       // to ensure that dividend % divisor == 0
       if (prvResult % num != 0 || prvResult == num) {
-        for (int i = num - 1; i > 1; i--) {
+        for (int i = 9; i > 1; i--) {
           if (prvResult % i == 0) {
             num = i;
             break;

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -158,7 +160,7 @@ class Game1Controller extends GetxController
     update();
 
     // wait 1500 milliseconds before go to the next question
-    Future.delayed(const Duration(milliseconds: 1500), () {
+    Timer(const Duration(milliseconds: 1500), () {
       nextQuestion();
     });
   }
