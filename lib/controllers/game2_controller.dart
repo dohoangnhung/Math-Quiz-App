@@ -1,1 +1,196 @@
+import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:math_quiz/game2_screens/g2_congratulation_screen.dart';
+import 'package:math_quiz/models/game2_data_generator.dart';
+
+class Game2Controller extends GetxController
+    with GetSingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+
+  // to animate progress bar
+  late Animation _animation;
+  Animation get animation => _animation;
+
+  // to animate page turn
+  late PageController _pageController;
+  PageController get pageController => _pageController;
+
+  bool _isAnswered = false;
+  bool get isAnswered => _isAnswered;
+
+  late List<int> _correctAns;
+  List<int> get correctAns => _correctAns;
+
+  late List<int> _selectedAns;
+  List<int> get selectedAns => _selectedAns;
+
+  // to record the options the user had chosen
+  List<int> _optionsChosen = [];
+  List<int> get optionsChosen => _optionsChosen;
+
+  RxInt _questionNumber = 1.obs;
+  RxInt get questionNumber => _questionNumber;
+
+  int _numOfCorrectAns = 0;
+  int get numOfCorrectAns => _numOfCorrectAns;
+
+  Game2DataGenerator dataGenerator = Get.put(Game2DataGenerator());
+
+  int playTime = 60;
+
+  RxInt _level = 1.obs;
+  RxInt get level => _level;
+
+  //! tạm thời: level1 100, level2 200, level3 300
+  RxInt point = 0.obs;
+  RxInt get getPoint => point;
+
+  // int _responseTime = 0;
+  // int _totalResponseTime = 0;
+  // int get totalResponseTime => _totalResponseTime;
+
+  @override
+  void onInit() {
+    // fill the progress bar within 60s
+    _animationController =
+        AnimationController(duration: Duration(seconds: playTime), vsync: this);
+    _animation = Tween<double>(begin: 0, end: 1).animate(_animationController)
+      ..addListener(() {
+        update();
+      });
+
+    // when 60s ends, go to the next question
+    _animationController.forward().whenComplete(nextQuestion);
+    _pageController = PageController();
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    _animationController.dispose();
+    _pageController.dispose();
+    super.onClose();
+  }
+
+  // generate questions level 1 (sum = 10)
+  List<List<int>> getQuestionsLevel1() {
+    List<List<int>> playQuestions = [];
+
+    for (int i = 0; i < 4; i++) {
+      playQuestions.add(dataGenerator.generateOptions(10, 4));
+    }
+    for (int i = 0; i < 5; i++) {
+      playQuestions.add(dataGenerator.generateOptions(10, 5));
+    }
+    for (int i = 0; i < 6; i++) {
+      playQuestions.add(dataGenerator.generateOptions(10, 6));
+    }
+    return playQuestions;
+  }
+
+  // generate questions level 2 (sum = 100)
+  List<List<int>> getQuestionsLevel2() {
+    List<List<int>> playQuestions = [];
+
+    for (int i = 0; i < 4; i++) {
+      playQuestions.add(dataGenerator.generateOptions(100, 4));
+    }
+    for (int i = 0; i < 5; i++) {
+      playQuestions.add(dataGenerator.generateOptions(100, 5));
+    }
+    for (int i = 0; i < 6; i++) {
+      playQuestions.add(dataGenerator.generateOptions(100, 6));
+    }
+    return playQuestions;
+  }
+
+  // generate questions level 3 (sum = 1000)
+  List<List<int>> getQuestionsLevel3() {
+    List<List<int>> playQuestions = [];
+
+    for (int i = 0; i < 4; i++) {
+      playQuestions.add(dataGenerator.generateOptions(1000, 4));
+    }
+    for (int i = 0; i < 5; i++) {
+      playQuestions.add(dataGenerator.generateOptions(1000, 5));
+    }
+    for (int i = 0; i < 6; i++) {
+      playQuestions.add(dataGenerator.generateOptions(1000, 6));
+    }
+    return playQuestions;
+  }
+
+  void checkAns(List<int> options, List<int> selectedInx) {
+    _isAnswered = true;
+    _selectedAns = selectedInx;
+
+    // check which options are correct
+    for (int i = 0; i < options.length - 1; i++) {
+      for (int j = i + 1; j < options.length; j++) {
+        if (options[i] + options[j] == 10) {
+          _correctAns = [i, j];
+          break;
+        }
+      }
+    }
+
+    // check if the selected answer is correct answer
+    if (equal(_selectedAns, _correctAns)) {
+      _numOfCorrectAns++;
+      if (_level.value == 1) {
+        point += 100;
+      } else if (_level.value == 2) {
+        point += 200;
+      } else {
+        point += 300;
+      }
+    }
+
+    // reset the record of the chosen options
+    _optionsChosen = [];
+
+    // stop the progress bar
+    _animationController.stop();
+    update();
+
+    // wait 1500 milliseconds before go to the next question
+    Timer(const Duration(milliseconds: 1500), () {
+      nextQuestion();
+    });
+  }
+
+  void nextQuestion() {
+    // TODO: chia level
+    if (_questionNumber.value != getQuestionsLevel1().length) {
+      _isAnswered = false;
+      _pageController.nextPage(
+          duration: const Duration(milliseconds: 250), curve: Curves.ease);
+
+      // reset progress bar
+      _animationController.reset();
+
+      // then start it agian
+      _animationController.forward().whenComplete(nextQuestion);
+    } else {
+      Get.to(() => const CongratulationScreen());
+    }
+  }
+
+  void updateQuestionNumber(int index) {
+    _questionNumber.value = index + 1;
+  }
+
+  bool equal(List list1, List list2) {
+    if (list1.length != list2.length) {
+      return false;
+    }
+    for (var element in list1) {
+      if (!list2.contains(element)) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
