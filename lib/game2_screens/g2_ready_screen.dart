@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import 'dart:async';
 
 import 'package:lottie/lottie.dart';
-import 'package:math_quiz/game1_screens/game1_screen.dart';
+
+import 'game2_screen.dart';
 
 class Game2ReadyScreen extends StatefulWidget {
   const Game2ReadyScreen({super.key});
@@ -18,7 +19,7 @@ class _ReadyDialogState extends State<Game2ReadyScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(milliseconds: 5430), () {
-      Get.to(() => const Game1Screen());
+      Get.to(() => const Game2Screen());
     });
   }
 
