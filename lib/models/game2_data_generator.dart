@@ -23,7 +23,7 @@ class Game2DataGenerator {
     List<int> optionsList = optionsSet.toList();
     optionsList.add(sum - num);
 
-    return optionsList;
+    return shuffle(optionsList);
   }
 
   bool onlyOneAns(List<int> optionsList, int sum) {
@@ -35,5 +35,18 @@ class Game2DataGenerator {
       }
     }
     return true;
+  }
+
+  List<int> shuffle(List<int> list) {
+    // start from the last element and swapp one by one
+    for (int i = list.length - 1; i > 0; i--) {
+      // pick a random index from 0 to i
+      int j = Random().nextInt(i + 1);
+
+      int temp = list[i];
+      list[i] = list[j];
+      list[j] = temp;
+    }
+    return list;
   }
 }
