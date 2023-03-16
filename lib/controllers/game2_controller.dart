@@ -64,9 +64,10 @@ class Game2Controller extends GetxController
   RxInt point = 0.obs;
   RxInt get getPoint => point;
 
-  // int _responseTime = 0;
-  // int _totalResponseTime = 0;
-  // int get totalResponseTime => _totalResponseTime;
+  // to record total play time of user
+  int _responseTime = 0;
+  int _totalResponseTime = 0;
+  int get totalResponseTime => _totalResponseTime;
 
   @override
   void onInit() {
@@ -153,6 +154,10 @@ class Game2Controller extends GetxController
   void checkAns(List<int> options, List<int> selectedInx) {
     _isAnswered = true;
     _selectedAns = selectedInx;
+
+    // calculate total response time on the whole question set
+    _responseTime = (animation.value * playTime).round();
+    _totalResponseTime += _responseTime;
 
     // check which options are correct
     for (int i = 0; i < options.length - 1; i++) {
