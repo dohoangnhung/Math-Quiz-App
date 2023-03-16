@@ -38,12 +38,29 @@ class Game2Controller extends GetxController
 
   Game2DataGenerator dataGenerator = Get.put(Game2DataGenerator());
 
-  int playTime = 60;
+  late int playTime;
 
   RxInt _level = 1.obs;
   RxInt get level => _level;
 
-  //! tạm thời: level1 100, level2 200, level3 300
+  List<int> pointList = [
+    100,
+    100,
+    100,
+    100,
+    200,
+    200,
+    300,
+    300,
+    300,
+    400,
+    400,
+    500,
+    500,
+    500,
+    500
+  ];
+
   RxInt point = 0.obs;
   RxInt get getPoint => point;
 
@@ -53,6 +70,17 @@ class Game2Controller extends GetxController
 
   @override
   void onInit() {
+    // set the initial play time
+    if (_questionNumber.value == 1) {
+      if (_level.value == 1) {
+        playTime = 10;
+      } else if (_level.value == 2) {
+        playTime = 12;
+      } else {
+        playTime = 15;
+      }
+    }
+
     // fill the progress bar within 60s
     _animationController =
         AnimationController(duration: Duration(seconds: playTime), vsync: this);
@@ -139,13 +167,7 @@ class Game2Controller extends GetxController
     // check if the selected answer is correct answer
     if (equal(_selectedAns, _correctAns)) {
       _numOfCorrectAns++;
-      if (_level.value == 1) {
-        point += 100;
-      } else if (_level.value == 2) {
-        point += 200;
-      } else {
-        point += 300;
-      }
+      point += pointList[_questionNumber.value - 1];
     }
 
     // reset the record of the chosen options
@@ -162,8 +184,8 @@ class Game2Controller extends GetxController
   }
 
   void nextQuestion() {
-    // TODO: chia level
-    if (_questionNumber.value != getQuestionsLevel1().length) {
+    //! number of questions of each level is 15 (fixed)
+    if (_questionNumber.value != 15) {
       _isAnswered = false;
       _pageController.nextPage(
           duration: const Duration(milliseconds: 250), curve: Curves.ease);
@@ -180,6 +202,11 @@ class Game2Controller extends GetxController
 
   void updateQuestionNumber(int index) {
     _questionNumber.value = index + 1;
+
+    // update play time through each question
+    if (_questionNumber.value == 7 || _questionNumber.value == 12) {
+      playTime -= 2;
+    }
   }
 
   bool equal(List list1, List list2) {
