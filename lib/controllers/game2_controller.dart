@@ -223,6 +223,11 @@ class Game2Controller extends GetxController
         return false;
       }
     }
+    for (var element in list2) {
+      if (!list1.contains(element)) {
+        return false;
+      }
+    }
     return true;
   }
 }
