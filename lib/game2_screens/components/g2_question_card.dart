@@ -33,21 +33,24 @@ class QuestionCard extends StatelessWidget {
                 .copyWith(color: const Color.fromRGBO(16, 16, 16, 1)),
           ),
           const SizedBox(height: 10),
-          ...List.generate(
-            question.length,
-            (index) => Option(
-              index: index,
-              text: question[index].toString(),
-              press: () => {
-                // choose two options at a time
-                _controller.optionsChosen.add(index),
-                if (_controller.optionsChosen.length == 2)
-                  {
-                    _controller.checkAns(question, _controller.optionsChosen),
-                  }
-              },
+          Wrap(
+            alignment: WrapAlignment.center,
+            spacing: 20,
+            children: List.generate(
+              question.length,
+              (index) => Option(
+                index: index,
+                text: question[index].toString(),
+                press: () => {
+                  _controller.optionsChosen.add(index),
+                  if (_controller.optionsChosen.length == 2)
+                    {
+                      _controller.checkAns(question, _controller.optionsChosen),
+                    }
+                },
+              ),
             ),
-          ),
+          )
         ],
       ),
     );
