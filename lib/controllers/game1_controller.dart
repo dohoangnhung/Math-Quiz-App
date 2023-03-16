@@ -122,10 +122,10 @@ class Game1Controller extends GetxController
       point += pointList[_questionNumber.value - 1];
     } else {
       consecutive = false;
-      // for each incorrect ans => minus play time by 2s
-      playTime -= 2;
+      // for each incorrect ans => minus play time by 1s
+      playTime -= 1;
       Fluttertoast.showToast(
-        msg: '-2 giây',
+        msg: '-1 giây',
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 2,
@@ -141,8 +141,8 @@ class Game1Controller extends GetxController
       consecutiveCorrectTimes = 0;
     }
 
-    // 5 correct ans in a row => add 10s to play time
-    if (consecutiveCorrectTimes == 5) {
+    // 3 correct ans in a row => add 10s to play time
+    if (consecutiveCorrectTimes == 3) {
       playTime += 10;
       consecutiveCorrectTimes = 0;
       Fluttertoast.showToast(
