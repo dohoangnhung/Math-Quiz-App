@@ -62,7 +62,7 @@ class _ReadyDialogState extends State<CongratulationScreen> {
               Lottie.asset(
                 'assets/congratulation.json',
                 height: 300,
-                fit: BoxFit.fill,
+                fit: BoxFit.contain,
                 repeat: false,
               ),
               const SizedBox(height: 30),
