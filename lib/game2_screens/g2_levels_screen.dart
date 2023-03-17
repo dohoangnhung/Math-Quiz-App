@@ -107,8 +107,13 @@ class LevelsScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  glbLevel = 2.obs;
-                  Get.to(() => const Game2Screen());
+                  glbLevelUp == true && glbLevel == 1.obs
+                      ? {
+                          glbLevel = 2.obs,
+                          glbLevelUp = false,
+                          Get.to(() => const Game2Screen()),
+                        }
+                      : null;
                 },
                 child: const Text(
                   'Độ khó 2',
@@ -136,8 +141,13 @@ class LevelsScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  glbLevel = 3.obs;
-                  Get.to(() => const Game2Screen());
+                  glbLevelUp == true && glbLevel == 2.obs
+                      ? {
+                          glbLevel = 3.obs,
+                          glbLevelUp = false,
+                          Get.to(() => const Game2Screen()),
+                        }
+                      : null;
                 },
                 child: const Text(
                   'Độ khó 3',
