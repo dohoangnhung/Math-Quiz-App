@@ -11,10 +11,10 @@ class CongratulationScreen extends StatefulWidget {
   const CongratulationScreen({super.key});
 
   @override
-  State<CongratulationScreen> createState() => _ReadyDialogState();
+  State<CongratulationScreen> createState() => _CongratState();
 }
 
-class _ReadyDialogState extends State<CongratulationScreen> {
+class _CongratState extends State<CongratulationScreen> {
   @override
   Widget build(BuildContext context) {
     Game1Controller _questionController = Get.put(Game1Controller());
