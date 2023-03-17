@@ -26,7 +26,7 @@ class QuestionCard extends StatelessWidget {
         children: [
           Text(
             // TODO: chia level
-            'Hai số nào dưới đây có tổng bằng 10?',
+            'Hai số nào dưới đây có tổng bằng ${_controller.getSum}?',
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall!

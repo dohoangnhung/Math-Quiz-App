@@ -40,8 +40,11 @@ class Game2Controller extends GetxController
 
   late int playTime;
 
-  RxInt _level = 1.obs;
-  RxInt get level => _level;
+  RxInt _level = 0.obs;
+  RxInt get getLevel => _level;
+
+  RxInt _sum = 0.obs;
+  RxInt get getSum => _sum;
 
   List<int> pointList = [
     100,
@@ -103,50 +106,61 @@ class Game2Controller extends GetxController
     super.onClose();
   }
 
-  // generate questions level 1 (sum = 10)
-  List<List<int>> getQuestionsLevel1() {
-    List<List<int>> playQuestions = [];
-
-    for (int i = 0; i < 4; i++) {
-      playQuestions.add(dataGenerator.generateOptions(10, 4));
+  // set level and sum
+  set setLevel(RxInt levelChosen) {
+    _level = levelChosen;
+    if (_level == 1.obs) {
+      _sum = 10.obs;
     }
-    for (int i = 0; i < 5; i++) {
-      playQuestions.add(dataGenerator.generateOptions(10, 5));
+    if (_level == 2.obs) {
+      _sum = 100.obs;
     }
-    for (int i = 0; i < 6; i++) {
-      playQuestions.add(dataGenerator.generateOptions(10, 6));
+    if (_level == 3.obs) {
+      _sum = 1000.obs;
     }
-    return playQuestions;
   }
 
-  // generate questions level 2 (sum = 100)
-  List<List<int>> getQuestionsLevel2() {
+  // generate questions
+  List<List<int>> getQuestions() {
     List<List<int>> playQuestions = [];
 
-    for (int i = 0; i < 4; i++) {
-      playQuestions.add(dataGenerator.generateOptions(100, 4));
+    // level 1
+    if (_level == 1.obs) {
+      for (int i = 0; i < 4; i++) {
+        playQuestions.add(dataGenerator.generateOptions(10, 4));
+      }
+      for (int i = 0; i < 5; i++) {
+        playQuestions.add(dataGenerator.generateOptions(10, 5));
+      }
+      for (int i = 0; i < 6; i++) {
+        playQuestions.add(dataGenerator.generateOptions(10, 6));
+      }
     }
-    for (int i = 0; i < 5; i++) {
-      playQuestions.add(dataGenerator.generateOptions(100, 5));
-    }
-    for (int i = 0; i < 6; i++) {
-      playQuestions.add(dataGenerator.generateOptions(100, 6));
-    }
-    return playQuestions;
-  }
 
-  // generate questions level 3 (sum = 1000)
-  List<List<int>> getQuestionsLevel3() {
-    List<List<int>> playQuestions = [];
+    // level 2
+    if (_level == 2.obs) {
+      for (int i = 0; i < 4; i++) {
+        playQuestions.add(dataGenerator.generateOptions(100, 4));
+      }
+      for (int i = 0; i < 5; i++) {
+        playQuestions.add(dataGenerator.generateOptions(100, 5));
+      }
+      for (int i = 0; i < 6; i++) {
+        playQuestions.add(dataGenerator.generateOptions(100, 6));
+      }
+    }
 
-    for (int i = 0; i < 4; i++) {
-      playQuestions.add(dataGenerator.generateOptions(1000, 4));
-    }
-    for (int i = 0; i < 5; i++) {
-      playQuestions.add(dataGenerator.generateOptions(1000, 5));
-    }
-    for (int i = 0; i < 6; i++) {
-      playQuestions.add(dataGenerator.generateOptions(1000, 6));
+    // level 3
+    if (_level == 3.obs) {
+      for (int i = 0; i < 4; i++) {
+        playQuestions.add(dataGenerator.generateOptions(1000, 4));
+      }
+      for (int i = 0; i < 5; i++) {
+        playQuestions.add(dataGenerator.generateOptions(1000, 5));
+      }
+      for (int i = 0; i < 6; i++) {
+        playQuestions.add(dataGenerator.generateOptions(1000, 6));
+      }
     }
     return playQuestions;
   }
@@ -162,7 +176,7 @@ class Game2Controller extends GetxController
     // check which options are correct
     for (int i = 0; i < options.length - 1; i++) {
       for (int j = i + 1; j < options.length; j++) {
-        if (options[i] + options[j] == 10) {
+        if (options[i] + options[j] == _sum.value) {
           _correctAns = [i, j];
           break;
         }

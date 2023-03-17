@@ -11,7 +11,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Game2Controller _controller = Get.put(Game2Controller());
-    final List<List<int>> questionSet = _controller.getQuestionsLevel1();
+    final List<List<int>> questionSet = _controller.getQuestions();
 
     return Stack(
       children: [
