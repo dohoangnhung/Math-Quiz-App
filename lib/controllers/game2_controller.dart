@@ -208,7 +208,7 @@ class Game2Controller extends GetxController
     } else {
       Get.to(() => const CongratulationScreen());
       if (numOfCorrectAns >= 14) {
-        glbLevelUp = true;
+        glbOpenLevel = true;
       }
     }
   }

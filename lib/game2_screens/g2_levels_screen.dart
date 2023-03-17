@@ -94,23 +94,41 @@ class LevelsScreen extends StatelessWidget {
 
               //! level 2
               ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      const Color.fromARGB(255, 46, 46, 46)),
-                  elevation: MaterialStateProperty.all(1),
-                  padding: MaterialStateProperty.all(const EdgeInsets.symmetric(
-                      horizontal: 100, vertical: 25)),
-                  shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
-                    (_) => RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
+                style: (glbOpenLevel == true && glbLevel == 1.obs) ||
+                        glbLevel >= 2
+                    ? ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            const Color.fromARGB(255, 46, 46, 46)),
+                        elevation: MaterialStateProperty.all(1),
+                        padding: MaterialStateProperty.all(
+                            const EdgeInsets.symmetric(
+                                horizontal: 100, vertical: 25)),
+                        shape:
+                            MaterialStateProperty.resolveWith<OutlinedBorder>(
+                          (_) => RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      )
+                    : ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            const Color.fromARGB(255, 174, 174, 174)),
+                        elevation: MaterialStateProperty.all(1),
+                        padding: MaterialStateProperty.all(
+                            const EdgeInsets.symmetric(
+                                horizontal: 100, vertical: 25)),
+                        shape:
+                            MaterialStateProperty.resolveWith<OutlinedBorder>(
+                          (_) => RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
                 onPressed: () {
-                  glbLevelUp == true && glbLevel == 1.obs
+                  (glbOpenLevel == true && glbLevel == 1.obs) || glbLevel >= 2
                       ? {
                           glbLevel = 2.obs,
-                          glbLevelUp = false,
+                          glbOpenLevel = false,
                           Get.to(() => const Game2Screen()),
                         }
                       : null;
@@ -128,23 +146,41 @@ class LevelsScreen extends StatelessWidget {
 
               //! level 3
               ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      const Color.fromARGB(255, 46, 46, 46)),
-                  elevation: MaterialStateProperty.all(1),
-                  padding: MaterialStateProperty.all(const EdgeInsets.symmetric(
-                      horizontal: 100, vertical: 25)),
-                  shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
-                    (_) => RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
+                style: (glbOpenLevel == true && glbLevel == 2.obs) ||
+                        glbLevel >= 3
+                    ? ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            const Color.fromARGB(255, 46, 46, 46)),
+                        elevation: MaterialStateProperty.all(1),
+                        padding: MaterialStateProperty.all(
+                            const EdgeInsets.symmetric(
+                                horizontal: 100, vertical: 25)),
+                        shape:
+                            MaterialStateProperty.resolveWith<OutlinedBorder>(
+                          (_) => RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      )
+                    : ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            const Color.fromARGB(255, 174, 174, 174)),
+                        elevation: MaterialStateProperty.all(1),
+                        padding: MaterialStateProperty.all(
+                            const EdgeInsets.symmetric(
+                                horizontal: 100, vertical: 25)),
+                        shape:
+                            MaterialStateProperty.resolveWith<OutlinedBorder>(
+                          (_) => RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
                 onPressed: () {
-                  glbLevelUp == true && glbLevel == 2.obs
+                  (glbOpenLevel == true && glbLevel == 2.obs) || glbLevel >= 3
                       ? {
                           glbLevel = 3.obs,
-                          glbLevelUp = false,
+                          glbOpenLevel = false,
                           Get.to(() => const Game2Screen()),
                         }
                       : null;
