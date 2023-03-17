@@ -27,6 +27,10 @@ class Option extends StatelessWidget {
       init: Game2Controller(),
       builder: (controller) {
         Color getTheRightColor() {
+          if (!controller.isAnswered &&
+              controller.optionsChosen.contains(index)) {
+            return const Color.fromARGB(255, 106, 106, 106);
+          }
           if (controller.isAnswered) {
             if (controller.correctAns.contains(index)) {
               return Colors.green;
@@ -40,7 +44,13 @@ class Option extends StatelessWidget {
         }
 
         IconData getTheRightIcon() {
-          return getTheRightColor() == Colors.red ? Icons.close : Icons.done;
+          if (getTheRightColor() == Colors.red) {
+            return Icons.close;
+          } else if (getTheRightColor() == Colors.green) {
+            return Icons.done;
+          } else {
+            return Icons.question_mark_sharp;
+          }
         }
 
         Color fillOptionColor() {
