@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:math_quiz/game1_screens/g1_ready_screen.dart';
-import 'package:math_quiz/game2_screens/g2_ready_screen.dart';
+
+import 'game1_screens/g1_ready_screen.dart';
+import 'game2_screens/g2_levels_screen.dart';
 
 class NavigatorPage extends StatelessWidget {
   const NavigatorPage({super.key});
@@ -21,7 +22,7 @@ class NavigatorPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Get.to(() => const Game2ReadyScreen());
+                Get.to(() => const LevelsScreen());
               },
               child: const Text('Game 2'),
             ),
