@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:math_quiz/game2_screens/g2_congratulation_screen.dart';
+import 'package:math_quiz/game2_screens/g2_globals.dart';
 import 'package:math_quiz/models/game2_data_generator.dart';
 
 class Game2Controller extends GetxController
@@ -40,7 +41,7 @@ class Game2Controller extends GetxController
 
   late int playTime;
 
-  RxInt _level = 0.obs;
+  final RxInt _level = glbLevel;
   RxInt get getLevel => _level;
 
   RxInt _sum = 0.obs;
@@ -106,26 +107,14 @@ class Game2Controller extends GetxController
     super.onClose();
   }
 
-  // set level and sum
-  set setLevel(RxInt levelChosen) {
-    _level = levelChosen;
-    if (_level == 1.obs) {
-      _sum = 10.obs;
-    }
-    if (_level == 2.obs) {
-      _sum = 100.obs;
-    }
-    if (_level == 3.obs) {
-      _sum = 1000.obs;
-    }
-  }
-
   // generate questions
   List<List<int>> getQuestions() {
     List<List<int>> playQuestions = [];
 
     // level 1
     if (_level == 1.obs) {
+      _sum = 10.obs;
+
       for (int i = 0; i < 4; i++) {
         playQuestions.add(dataGenerator.generateOptions(10, 4));
       }
@@ -139,6 +128,7 @@ class Game2Controller extends GetxController
 
     // level 2
     if (_level == 2.obs) {
+      _sum = 100.obs;
       for (int i = 0; i < 4; i++) {
         playQuestions.add(dataGenerator.generateOptions(100, 4));
       }
@@ -152,6 +142,7 @@ class Game2Controller extends GetxController
 
     // level 3
     if (_level == 3.obs) {
+      _sum = 1000.obs;
       for (int i = 0; i < 4; i++) {
         playQuestions.add(dataGenerator.generateOptions(1000, 4));
       }

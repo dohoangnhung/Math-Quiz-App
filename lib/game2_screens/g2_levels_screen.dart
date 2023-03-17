@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:math_quiz/controllers/game2_controller.dart';
+import 'package:math_quiz/game2_screens/g2_globals.dart';
 import 'package:math_quiz/game2_screens/game2_screen.dart';
 
 import '../navigator.dart';
@@ -10,7 +10,6 @@ class LevelsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Game2Controller _controller = Get.put(Game2Controller());
     double scrHeight = MediaQuery.of(context).size.height;
 
     return WillPopScope(
@@ -79,7 +78,7 @@ class LevelsScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  _controller.setLevel = 1.obs;
+                  glbLevel = 1.obs;
                   Get.to(() => const Game2Screen());
                 },
                 child: const Text(
@@ -108,7 +107,7 @@ class LevelsScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  _controller.setLevel = 2.obs;
+                  glbLevel = 2.obs;
                   Get.to(() => const Game2Screen());
                 },
                 child: const Text(
@@ -137,7 +136,7 @@ class LevelsScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  _controller.setLevel = 3.obs;
+                  glbLevel = 3.obs;
                   Get.to(() => const Game2Screen());
                 },
                 child: const Text(
