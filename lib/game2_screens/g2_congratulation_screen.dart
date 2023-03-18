@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:lottie/lottie.dart';
+import 'package:math_quiz/game2_screens/g2_levels_screen.dart';
 
 import '../controllers/game2_controller.dart';
-import '../navigator.dart';
 
 class CongratulationScreen extends StatefulWidget {
   const CongratulationScreen({super.key});
@@ -28,7 +28,7 @@ class _CongratState extends State<CongratulationScreen> {
 
     return WillPopScope(
       onWillPop: () async {
-        Get.offAll(() => const NavigatorPage());
+        Get.offAll(() => const LevelsScreen());
         return true;
       },
       child: Scaffold(
@@ -102,7 +102,7 @@ class _CongratState extends State<CongratulationScreen> {
                   ),
                 ),
                 onPressed: () {
-                  Get.offAll(() => const NavigatorPage());
+                  Get.offAll(() => const LevelsScreen());
                 },
                 child: const Text(
                   'Quay lại màn hình chính',

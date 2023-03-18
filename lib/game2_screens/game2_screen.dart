@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:math_quiz/game2_screens/g2_levels_screen.dart';
 import 'package:quickalert/quickalert.dart';
 
 import 'package:math_quiz/controllers/game2_controller.dart';
-import '../navigator.dart';
 import 'components/g2_body.dart';
 
 class Game2Screen extends StatelessWidget {
@@ -23,7 +23,7 @@ class Game2Screen extends StatelessWidget {
           confirmBtnText: 'Có',
           confirmBtnColor: const Color.fromARGB(255, 4, 114, 117),
           onConfirmBtnTap: () {
-            Get.offAll(() => const NavigatorPage());
+            Get.offAll(() => const LevelsScreen());
           },
           confirmBtnTextStyle: const TextStyle(
             color: Colors.white,
@@ -59,7 +59,7 @@ class Game2Screen extends StatelessWidget {
                 confirmBtnText: 'Có',
                 confirmBtnColor: const Color.fromARGB(255, 4, 114, 117),
                 onConfirmBtnTap: () {
-                  Get.offAll(() => const NavigatorPage());
+                  Get.offAll(() => const LevelsScreen());
                 },
                 confirmBtnTextStyle: const TextStyle(
                   color: Colors.white,
