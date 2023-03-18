@@ -44,7 +44,7 @@ class Body extends StatelessWidget {
                                 text: ' ĐIỂM SỐ ',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headlineSmall!
+                                    .headline6!
                                     .copyWith(
                                         color: const Color.fromRGBO(
                                             139, 148, 188, 1)),
@@ -53,7 +53,7 @@ class Body extends StatelessWidget {
                                     text: "${_controller.getPoint}",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headlineMedium!
+                                        .headline4!
                                         .copyWith(
                                             color: const Color.fromRGBO(
                                                 139, 148, 188, 1)),
@@ -85,10 +85,10 @@ class Body extends StatelessWidget {
                           Obx(
                             () => Text.rich(
                               TextSpan(
-                                text: 'CẤP ĐỘ ',
+                                text: ' CẤP ĐỘ ',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headlineSmall!
+                                    .headline6!
                                     .copyWith(
                                         color: const Color.fromRGBO(
                                             139, 148, 188, 1)),
@@ -97,7 +97,7 @@ class Body extends StatelessWidget {
                                     text: "${_controller.getLevel}",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headlineMedium!
+                                        .headline4!
                                         .copyWith(
                                             color: const Color.fromRGBO(
                                                 139, 148, 188, 1)),
@@ -126,7 +126,7 @@ class Body extends StatelessWidget {
                       text: "Câu hỏi ${_controller.questionNumber}",
                       style: Theme.of(context)
                           .textTheme
-                          .headlineLarge!
+                          .headlineMedium!
                           .copyWith(
                               color: const Color.fromRGBO(139, 148, 188, 1)),
                       children: [
@@ -134,7 +134,7 @@ class Body extends StatelessWidget {
                           text: "/${questionSet.length}",
                           style: Theme.of(context)
                               .textTheme
-                              .headlineSmall!
+                              .headline5!
                               .copyWith(
                                   color:
                                       const Color.fromRGBO(139, 148, 188, 1)),
@@ -142,13 +142,6 @@ class Body extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Divider(
-                  thickness: 1.5,
-                  color: Color.fromRGBO(63, 71, 104, 1),
                 ),
               ),
               Expanded(

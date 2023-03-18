@@ -29,7 +29,7 @@ class QuestionCard extends StatelessWidget {
             'Hai số nào dưới đây có tổng bằng ${_controller.getSum}?',
             style: Theme.of(context)
                 .textTheme
-                .headlineSmall!
+                .headline5!
                 .copyWith(color: const Color.fromRGBO(16, 16, 16, 1)),
           ),
           const SizedBox(height: 10),

@@ -45,8 +45,6 @@ class Game2Screen extends StatelessWidget {
           ],
         ),
         body: Container(
-          // width: MediaQuery.of(context).size.width,
-          // height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/g2_bg.png'),
