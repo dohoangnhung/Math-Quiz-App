@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:math_quiz/game2_screens/g2_globals.dart';
 import 'package:math_quiz/game2_screens/game2_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../navigator.dart';
 
@@ -77,8 +78,9 @@ class LevelsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                onPressed: () {
-                  glbLevel = 1.obs;
+                onPressed: () async {
+                  setLevel(1);
+                  glbLevel.value = (await getLevel())!;
                   Get.to(() => const Game2Screen());
                 },
                 child: const Text(
@@ -94,7 +96,7 @@ class LevelsScreen extends StatelessWidget {
 
               //! level 2
               ElevatedButton(
-                style: (glbOpenLevel == true && glbLevel == 1.obs) ||
+                style: (glbUnblock == true && glbLevel.value == 1) ||
                         glbLevel >= 2
                     ? ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
@@ -124,11 +126,12 @@ class LevelsScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                onPressed: () {
-                  (glbOpenLevel == true && glbLevel == 1.obs) || glbLevel >= 2
+                onPressed: () async {
+                  (glbUnblock == true && glbLevel.value == 1) || glbLevel >= 2
                       ? {
-                          glbLevel = 2.obs,
-                          glbOpenLevel = false,
+                          setLevel(2),
+                          glbLevel.value = (await getLevel())!,
+                          glbUnblock = false,
                           Get.to(() => const Game2Screen()),
                         }
                       : null;
@@ -146,7 +149,7 @@ class LevelsScreen extends StatelessWidget {
 
               //! level 3
               ElevatedButton(
-                style: (glbOpenLevel == true && glbLevel == 2.obs) ||
+                style: (glbUnblock == true && glbLevel.value == 2) ||
                         glbLevel >= 3
                     ? ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
@@ -176,11 +179,12 @@ class LevelsScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                onPressed: () {
-                  (glbOpenLevel == true && glbLevel == 2.obs) || glbLevel >= 3
+                onPressed: () async {
+                  (glbUnblock == true && glbLevel.value == 2) || glbLevel >= 3
                       ? {
-                          glbLevel = 3.obs,
-                          glbOpenLevel = false,
+                          setLevel(3),
+                          glbLevel.value = (await getLevel())!,
+                          glbUnblock = false,
                           Get.to(() => const Game2Screen()),
                         }
                       : null;
@@ -200,4 +204,16 @@ class LevelsScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+// set level
+Future<bool> setLevel(value) async {
+  final pref = await SharedPreferences.getInstance();
+  return await pref.setInt('prefLevel', value);
+}
+
+// get level
+Future<int?> getLevel() async {
+  final pref = await SharedPreferences.getInstance();
+  return pref.getInt('prefLevel');
 }
