@@ -146,7 +146,10 @@ class Body extends StatelessWidget {
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Divider(thickness: 1.5),
+                child: Divider(
+                  thickness: 1.5,
+                  color: Color.fromRGBO(63, 71, 104, 1),
+                ),
               ),
               Expanded(
                 child: PageView.builder(

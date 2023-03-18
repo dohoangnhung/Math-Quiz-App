@@ -45,14 +45,12 @@ class Game2Screen extends StatelessWidget {
           ],
         ),
         body: Container(
+          // width: MediaQuery.of(context).size.width,
+          // height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 58, 65, 127),
-                Color.fromARGB(255, 21, 23, 81),
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+            image: DecorationImage(
+              image: AssetImage('assets/g2_bg.png'),
+              fit: BoxFit.fill,
             ),
           ),
           child: const Body(),
