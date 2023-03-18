@@ -20,7 +20,7 @@ class Body extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
                     decoration: BoxDecoration(
@@ -51,6 +51,50 @@ class Body extends StatelessWidget {
                                 children: [
                                   TextSpan(
                                     text: "${_controller.getPoint}",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium!
+                                        .copyWith(
+                                            color: const Color.fromRGBO(
+                                                139, 148, 188, 1)),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 10,
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            'assets/flag.png',
+                            scale: 1.2,
+                          ),
+                          Obx(
+                            () => Text.rich(
+                              TextSpan(
+                                text: 'CẤP ĐỘ ',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall!
+                                    .copyWith(
+                                        color: const Color.fromRGBO(
+                                            139, 148, 188, 1)),
+                                children: [
+                                  TextSpan(
+                                    text: "${_controller.getLevel}",
                                     style: Theme.of(context)
                                         .textTheme
                                         .headlineMedium!
