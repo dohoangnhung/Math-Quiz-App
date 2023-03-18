@@ -29,7 +29,7 @@ class Option extends StatelessWidget {
         Color getTheRightColor() {
           if (!controller.isAnswered &&
               controller.optionsChosen.contains(index)) {
-            return const Color.fromARGB(255, 106, 106, 106);
+            return const Color.fromARGB(255, 91, 90, 90);
           }
           if (controller.isAnswered) {
             if (controller.correctAns.contains(index)) {
@@ -40,7 +40,7 @@ class Option extends StatelessWidget {
               return Colors.red;
             }
           }
-          return const Color.fromRGBO(193, 193, 193, 1);
+          return const Color.fromARGB(255, 146, 146, 146);
         }
 
         IconData getTheRightIcon() {
@@ -84,7 +84,7 @@ class Option extends StatelessWidget {
                   text,
                   style: TextStyle(
                     color: getTheRightColor(),
-                    fontSize: 16,
+                    fontSize: 22,
                   ),
                 ),
                 Container(
@@ -92,7 +92,7 @@ class Option extends StatelessWidget {
                   width: 26,
                   decoration: BoxDecoration(
                     color: getTheRightColor() ==
-                            const Color.fromRGBO(193, 193, 193, 1)
+                            const Color.fromARGB(255, 146, 146, 146)
                         ? Colors.transparent
                         : getTheRightColor(),
                     border: Border.all(

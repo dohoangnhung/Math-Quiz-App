@@ -11,10 +11,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       title: 'Quiz App',
       debugShowCheckedModeBanner: false,
-      home: NavigatorPage(),
+      theme: ThemeData(fontFamily: 'RobotoSlab'),
+      home: const NavigatorPage(),
     );
   }
 }
