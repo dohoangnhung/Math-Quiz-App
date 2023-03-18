@@ -28,8 +28,8 @@ class Game2Controller extends GetxController
   List<int> get selectedAns => _selectedAns;
 
   // to record the options the user had chosen
-  List<int> _optionsChosen = [];
-  List<int> get optionsChosen => _optionsChosen;
+  Set<int> _optionsChosen = {};
+  Set<int> get optionsChosen => _optionsChosen;
 
   RxInt _questionNumber = 1.obs;
   RxInt get questionNumber => _questionNumber;
@@ -180,9 +180,6 @@ class Game2Controller extends GetxController
       point += pointList[_questionNumber.value - 1];
     }
 
-    // reset the record of the chosen options
-    _optionsChosen = [];
-
     // stop the progress bar
     _animationController.stop();
     update();
@@ -199,6 +196,9 @@ class Game2Controller extends GetxController
       _isAnswered = false;
       _pageController.nextPage(
           duration: const Duration(milliseconds: 250), curve: Curves.ease);
+
+      // reset the record of the chosen options
+      _optionsChosen = {};
 
       // reset progress bar
       _animationController.reset();

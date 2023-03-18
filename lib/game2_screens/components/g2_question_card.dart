@@ -45,7 +45,8 @@ class QuestionCard extends StatelessWidget {
                   _controller.optionsChosen.add(index),
                   if (_controller.optionsChosen.length == 2)
                     {
-                      _controller.checkAns(question, _controller.optionsChosen),
+                      _controller.checkAns(
+                          question, _controller.optionsChosen.toList()),
                     }
                 },
               ),
