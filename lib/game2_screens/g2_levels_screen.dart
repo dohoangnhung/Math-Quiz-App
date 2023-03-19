@@ -209,6 +209,7 @@ class LevelsScreen extends StatelessWidget {
 // set level
 Future<bool> setLevel(value) async {
   final pref = await SharedPreferences.getInstance();
+  print(value);
   return await pref.setInt('prefLevel', value);
 }
 

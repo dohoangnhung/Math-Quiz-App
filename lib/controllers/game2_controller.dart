@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:math_quiz/game2_screens/g2_congratulation_screen.dart';
+import 'package:math_quiz/game2_screens/g2_congrat_screen.dart';
 import 'package:math_quiz/game2_screens/g2_globals.dart';
 import 'package:math_quiz/models/game2_data_generator.dart';
 
@@ -206,7 +206,7 @@ class Game2Controller extends GetxController
       // then start it agian
       _animationController.forward().whenComplete(nextQuestion);
     } else {
-      Get.to(() => const CongratulationScreen());
+      Get.to(() => const CongratScreen());
       if (numOfCorrectAns >= 14) {
         glbUnblock = true;
       }
