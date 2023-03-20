@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:math_quiz/game2_screens/g2_globals.dart';
 import 'package:math_quiz/game2_screens/game2_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../navigator.dart';
 
@@ -79,8 +78,7 @@ class LevelsScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () async {
-                  setLevel(1);
-                  glbLevel.value = (await getLevel())!;
+                  glbLevel.value = 1;
                   Get.to(() => const Game2Screen());
                 },
                 child: const Text(
@@ -129,8 +127,7 @@ class LevelsScreen extends StatelessWidget {
                 onPressed: () async {
                   (glbUnblock == true && glbLevel.value == 1) || glbLevel >= 2
                       ? {
-                          setLevel(2),
-                          glbLevel.value = (await getLevel())!,
+                          glbLevel.value = 2,
                           glbUnblock = false,
                           Get.to(() => const Game2Screen()),
                         }
@@ -182,8 +179,7 @@ class LevelsScreen extends StatelessWidget {
                 onPressed: () async {
                   (glbUnblock == true && glbLevel.value == 2) || glbLevel >= 3
                       ? {
-                          setLevel(3),
-                          glbLevel.value = (await getLevel())!,
+                          glbLevel.value = 3,
                           glbUnblock = false,
                           Get.to(() => const Game2Screen()),
                         }
@@ -204,17 +200,4 @@ class LevelsScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-// set level
-Future<bool> setLevel(value) async {
-  final pref = await SharedPreferences.getInstance();
-  print(value);
-  return await pref.setInt('prefLevel', value);
-}
-
-// get level
-Future<int?> getLevel() async {
-  final pref = await SharedPreferences.getInstance();
-  return pref.getInt('prefLevel');
 }
