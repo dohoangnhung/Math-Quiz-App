@@ -31,7 +31,7 @@ class _CongratState extends State<CongratScreen> {
             Container(
               height: scrHeight * 0.5,
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 164, 171, 196),
+                color: Color.fromARGB(255, 184, 192, 220),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(36),
                   bottomRight: Radius.circular(36),
