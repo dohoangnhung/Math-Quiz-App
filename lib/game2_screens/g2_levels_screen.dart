@@ -26,7 +26,7 @@ class LevelsScreen extends StatelessWidget {
           elevation: 0,
           leading: TextButton(
             onPressed: () {
-              Get.back();
+              Get.offAll(() => const NavigatorPage());
             },
             child: Image.asset(
               'assets/go-back.png',

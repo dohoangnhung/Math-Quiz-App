@@ -46,13 +46,9 @@ class Game1Screen extends StatelessWidget {
         ),
         body: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 58, 65, 127),
-                Color.fromARGB(255, 21, 23, 81),
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+            image: DecorationImage(
+              image: AssetImage('assets/universe.png'),
+              fit: BoxFit.cover,
             ),
           ),
           child: const Body(),

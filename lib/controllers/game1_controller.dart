@@ -5,7 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import '../models/game1_data_generator.dart';
-import '../game1_screens/g1_congratulation_screen.dart';
+import '../game1_screens/g1_congrat_screen.dart';
 
 class Game1Controller extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -177,7 +177,7 @@ class Game1Controller extends GetxController
       // then start it agian
       _animationController.forward().whenComplete(nextQuestion);
     } else {
-      Get.to(() => const CongratulationScreen());
+      Get.to(() => const CongratScreen());
     }
   }
 

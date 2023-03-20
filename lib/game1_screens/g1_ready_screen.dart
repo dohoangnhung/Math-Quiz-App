@@ -30,27 +30,36 @@ class _ReadyDialogState extends State<Game1ReadyScreen> {
       },
       child: Scaffold(
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Lottie.asset(
-                'assets/ready.json',
-                repeat: false,
+          child: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/night-sky.png'),
+                fit: BoxFit.fill,
               ),
-              AnimatedTextKit(
-                animatedTexts: [
-                  TypewriterAnimatedText(
-                    'Bạn đã sẵn sàng?',
-                    textStyle: const TextStyle(
-                      fontSize: 22,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Lottie.asset(
+                  'assets/ready.json',
+                  repeat: false,
+                ),
+                AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      'Bạn đã sẵn sàng?',
+                      textStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                      ),
+                      speed: const Duration(milliseconds: 100),
                     ),
-                    speed: const Duration(milliseconds: 100),
-                  ),
-                ],
-                isRepeatingAnimation: false,
-              )
-            ],
+                  ],
+                  isRepeatingAnimation: false,
+                )
+              ],
+            ),
           ),
         ),
       ),

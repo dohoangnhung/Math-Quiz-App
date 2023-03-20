@@ -13,6 +13,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Game1Controller _questionController = Get.put(Game1Controller());
     final List<List<Pair>> questionSet = _questionController.getQuestions();
+    double scrHeight = MediaQuery.of(context).size.height;
 
     return Stack(
       children: [
@@ -37,27 +38,23 @@ class Body extends StatelessWidget {
                         children: [
                           Image.asset(
                             'assets/medal.png',
-                            scale: 1.9,
+                            scale: 2.1,
                           ),
                           Obx(
                             () => Text.rich(
                               TextSpan(
                                 text: ' ĐIỂM SỐ ',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineSmall!
-                                    .copyWith(
-                                        color: const Color.fromRGBO(
-                                            139, 148, 188, 1)),
+                                style: const TextStyle(
+                                  color: Color.fromRGBO(139, 148, 188, 1),
+                                  fontSize: 20,
+                                ),
                                 children: [
                                   TextSpan(
                                     text: "${_questionController.getPoint}",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineMedium!
-                                        .copyWith(
-                                            color: const Color.fromRGBO(
-                                                139, 148, 188, 1)),
+                                    style: const TextStyle(
+                                      color: Color.fromRGBO(139, 148, 188, 1),
+                                      fontSize: 30,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -69,41 +66,34 @@ class Body extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: scrHeight / 40),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: ProgressBar(),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: scrHeight / 40),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Obx(
                   () => Text.rich(
                     TextSpan(
                       text: "Câu hỏi ${_questionController.questionNumber}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineLarge!
-                          .copyWith(
-                              color: const Color.fromRGBO(139, 148, 188, 1)),
+                      style: const TextStyle(
+                        color: Color.fromRGBO(139, 148, 188, 1),
+                        fontSize: 34,
+                      ),
                       children: [
                         TextSpan(
                           text: "/${questionSet.length}",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineSmall!
-                              .copyWith(
-                                  color:
-                                      const Color.fromRGBO(139, 148, 188, 1)),
+                          style: const TextStyle(
+                            color: Color.fromRGBO(139, 148, 188, 1),
+                            fontSize: 24,
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Divider(thickness: 1.5),
               ),
               Expanded(
                 child: PageView.builder(

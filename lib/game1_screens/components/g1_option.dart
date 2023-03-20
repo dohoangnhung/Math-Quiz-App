@@ -28,7 +28,7 @@ class Option extends StatelessWidget {
                 return Colors.red;
               }
             }
-            return const Color.fromRGBO(193, 193, 193, 1);
+            return const Color.fromRGBO(146, 146, 146, 1);
           }
 
           IconData getTheRightIcon() {
@@ -64,7 +64,7 @@ class Option extends StatelessWidget {
                     text,
                     style: TextStyle(
                       color: getTheRightColor(),
-                      fontSize: 16,
+                      fontSize: 22,
                     ),
                   ),
                   Container(
@@ -72,7 +72,7 @@ class Option extends StatelessWidget {
                     width: 26,
                     decoration: BoxDecoration(
                       color: getTheRightColor() ==
-                              const Color.fromRGBO(193, 193, 193, 1)
+                              const Color.fromRGBO(146, 146, 146, 1)
                           ? Colors.transparent
                           : getTheRightColor(),
                       border: Border.all(

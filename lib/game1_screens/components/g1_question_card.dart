@@ -16,6 +16,8 @@ class QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Game1Controller _controller = Get.put(Game1Controller());
+    double scrHeight = MediaQuery.of(context).size.height;
+
     return Container(
       margin: const EdgeInsets.fromLTRB(20, 20, 20, 30),
       padding: const EdgeInsets.all(20),
@@ -25,14 +27,14 @@ class QuestionCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(
+          const Text(
             'Biểu thức nào có giá trị bé hơn?',
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .copyWith(color: const Color.fromRGBO(16, 16, 16, 1)),
+            style: TextStyle(
+              color: Color.fromRGBO(16, 16, 16, 1),
+              fontSize: 22,
+            ),
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: scrHeight / 70),
           ...List.generate(
             question.length,
             (index) => Option(
