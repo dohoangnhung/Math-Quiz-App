@@ -12,6 +12,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Game2Controller _controller = Get.put(Game2Controller());
     final List<List<int>> questionSet = _controller.getQuestions();
+    double scrHeight = MediaQuery.of(context).size.height;
 
     return Stack(
       children: [
@@ -28,35 +29,28 @@ class Body extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 10,
-                      ),
+                      padding: const EdgeInsets.fromLTRB(20, 10, 10, 10),
                       child: Row(
                         children: [
                           Image.asset(
                             'assets/medal.png',
-                            scale: 1.9,
+                            scale: 2.1,
                           ),
                           Obx(
                             () => Text.rich(
                               TextSpan(
                                 text: ' ĐIỂM SỐ ',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6!
-                                    .copyWith(
-                                        color: const Color.fromRGBO(
-                                            139, 148, 188, 1)),
+                                style: const TextStyle(
+                                  color: Color.fromRGBO(139, 148, 188, 1),
+                                  fontSize: 20,
+                                ),
                                 children: [
                                   TextSpan(
                                     text: "${_controller.getPoint}",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline4!
-                                        .copyWith(
-                                            color: const Color.fromRGBO(
-                                                139, 148, 188, 1)),
+                                    style: const TextStyle(
+                                      color: Color.fromRGBO(139, 148, 188, 1),
+                                      fontSize: 30,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -72,35 +66,28 @@ class Body extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 10,
-                      ),
+                      padding: const EdgeInsets.fromLTRB(10, 10, 20, 10),
                       child: Row(
                         children: [
                           Image.asset(
                             'assets/flag.png',
-                            scale: 1.2,
+                            scale: 1.3,
                           ),
                           Obx(
                             () => Text.rich(
                               TextSpan(
                                 text: ' CẤP ĐỘ ',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6!
-                                    .copyWith(
-                                        color: const Color.fromRGBO(
-                                            139, 148, 188, 1)),
+                                style: const TextStyle(
+                                  color: Color.fromRGBO(139, 148, 188, 1),
+                                  fontSize: 20,
+                                ),
                                 children: [
                                   TextSpan(
                                     text: "${_controller.getLevel}",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline4!
-                                        .copyWith(
-                                            color: const Color.fromRGBO(
-                                                139, 148, 188, 1)),
+                                    style: const TextStyle(
+                                      color: Color.fromRGBO(139, 148, 188, 1),
+                                      fontSize: 30,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -112,32 +99,27 @@ class Body extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: scrHeight / 80),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: ProgressBar(),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: scrHeight / 30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Obx(
                   () => Text.rich(
                     TextSpan(
                       text: "Câu hỏi ${_controller.questionNumber}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium!
-                          .copyWith(
-                              color: const Color.fromRGBO(139, 148, 188, 1)),
+                      style: const TextStyle(
+                          color: Color.fromRGBO(139, 148, 188, 1),
+                          fontSize: 34),
                       children: [
                         TextSpan(
                           text: "/${questionSet.length}",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline5!
-                              .copyWith(
-                                  color:
-                                      const Color.fromRGBO(139, 148, 188, 1)),
+                          style: const TextStyle(
+                              color: Color.fromRGBO(139, 148, 188, 1),
+                              fontSize: 24),
                         ),
                       ],
                     ),

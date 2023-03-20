@@ -15,8 +15,10 @@ class QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Game2Controller _controller = Get.put(Game2Controller());
+    double scrHeight = MediaQuery.of(context).size.height;
+
     return Container(
-      margin: const EdgeInsets.fromLTRB(20, 20, 20, 30),
+      margin: const EdgeInsets.fromLTRB(20, 15, 20, 30),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -26,12 +28,12 @@ class QuestionCard extends StatelessWidget {
         children: [
           Text(
             'Hai số nào dưới đây có tổng bằng ${_controller.getSum}?',
-            style: Theme.of(context)
-                .textTheme
-                .headline5!
-                .copyWith(color: const Color.fromRGBO(16, 16, 16, 1)),
+            style: const TextStyle(
+              color: Color.fromRGBO(16, 16, 16, 1),
+              fontSize: 22,
+            ),
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: scrHeight / 100),
           Wrap(
             alignment: WrapAlignment.center,
             spacing: 20,
