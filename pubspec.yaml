@@ -41,6 +41,7 @@ dependencies:
   quickalert: ^1.0.1
   fluttertoast: ^8.2.1
   shared_preferences: ^2.0.18
+  awesome_notifications: ^0.7.4+1
   http:
 
 dev_dependencies:
