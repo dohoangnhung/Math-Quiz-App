@@ -1,4 +1,3 @@
-import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 
 class ReminderAllowScr extends StatefulWidget {
@@ -135,17 +134,7 @@ class _ReminderAllowScrState extends State<ReminderAllowScr> {
           SizedBox(height: scrHeight / 10),
           ElevatedButton(
             //! đồng ý
-            onPressed: () {
-              AwesomeNotifications().createNotification(
-                content: NotificationContent(
-                  id: 1,
-                  channelKey: 'reminder',
-                  title: 'BrainTrain nhắc nhở',
-                  body:
-                      'Đã 2 ngày bạn chưa rèn luyện nhận thức, hãy quay trở lại với BrainTrain ngay hôm nay!',
-                ),
-              );
-            },
+            onPressed: () {},
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(
                   const Color.fromARGB(255, 70, 172, 255)),
