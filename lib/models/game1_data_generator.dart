@@ -118,10 +118,66 @@ class Game1DataGenerator {
 
   Pair get generateThreeNumExp => threeNumExp();
 
-  // TODO: write code =))
   Pair fourNumExp() {
-    return Pair('', 0);
+    var op = listOfOps[Random().nextInt(listOfOps.length)];
+
+    int num = 1;
+    late int result;
+
+    Pair genPrvThreeNumExp = Pair('', 0);
+    String threeNumExp;
+    int prvResult;
+
+    if (op == '+') {
+      genPrvThreeNumExp = generateThreeNumExp;
+      prvResult = genPrvThreeNumExp.value;
+      num = Random().nextInt(9) + 1;
+      result = prvResult + num;
+    }
+
+    if (op == '-') {
+      do {
+        genPrvThreeNumExp = generateThreeNumExp;
+        prvResult = genPrvThreeNumExp.value;
+        num = Random().nextInt(9) + 1;
+      } while (prvResult < num);
+      result = prvResult - num;
+    }
+
+    if (op == 'x') {
+      do {
+        genPrvThreeNumExp = generateThreeNumExp;
+        prvResult = genPrvThreeNumExp.value;
+        num = Random().nextInt(8) + 2;
+      } while (prvResult * num >= 100);
+      result = prvResult * num;
+    }
+
+    if (op == ':') {
+      // check if the dividend is an prime number
+      do {
+        genPrvThreeNumExp = generateThreeNumExp;
+        prvResult = genPrvThreeNumExp.value;
+        num = Random().nextInt(8) + 2;
+      } while (isPrime(prvResult));
+
+      // to ensure that dividend % divisor == 0
+      if (prvResult % num != 0 || prvResult == num) {
+        for (int i = 9; i > 1; i--) {
+          if (prvResult % i == 0) {
+            num = i;
+            break;
+          }
+        }
+      }
+      result = prvResult ~/ num;
+    }
+    threeNumExp = genPrvThreeNumExp.exp;
+
+    return Pair('($threeNumExp) $op $num', result);
   }
+
+  Pair get generateFourNumExp => fourNumExp();
 
   List<Pair> questionLv1() {
     Pair exp1, exp2;

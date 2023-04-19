@@ -40,8 +40,6 @@ dependencies:
   animated_text_kit: ^4.2.2
   quickalert: ^1.0.1
   fluttertoast: ^8.2.1
-  shared_preferences: ^2.0.18
-  fl_chart: ^0.61.0
   http:
 
 dev_dependencies:

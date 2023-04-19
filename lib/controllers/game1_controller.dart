@@ -95,6 +95,14 @@ class Game1Controller extends GetxController
       playQuestions.add(dataGenerator.genQuestionLv5);
       pointList.add(400);
     }
+    for (int i = 0; i < 14; i++) {
+      playQuestions.add(dataGenerator.genQuestionLv6);
+      pointList.add(500);
+    }
+    for (int i = 0; i < 14; i++) {
+      playQuestions.add(dataGenerator.genQuestionLv7);
+      pointList.add(600);
+    }
     return playQuestions;
   }
 
