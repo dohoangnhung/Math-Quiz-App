@@ -63,7 +63,7 @@ class _CongratState extends State<CongratScreen> {
                   child: AnimatedTextKit(
                     animatedTexts: [
                       TyperAnimatedText(
-                        'Điểm: ${_questionController.getPoint}\nSố câu đúng: ${_questionController.numOfCorrectAns}/100\nThời gian chơi: ${_questionController.totalResponseTime} giây',
+                        'Điểm: ${_questionController.getPoint}\nSố câu đúng: ${_questionController.numOfCorrectAns}\nSố câu đã chơi: ${_questionController.questionNumber}',
                         textStyle: const TextStyle(
                           fontSize: 18,
                           fontFamily: 'RobotoSlab',
