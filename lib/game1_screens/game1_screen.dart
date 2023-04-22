@@ -31,18 +31,6 @@ class Game1Screen extends StatelessWidget {
               scale: 2.5,
             ),
           ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: TextButton(
-                onPressed: _controller.nextQuestion,
-                child: const Text(
-                  "Bỏ qua",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            )
-          ],
         ),
         body: Container(
           decoration: const BoxDecoration(

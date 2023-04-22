@@ -82,15 +82,6 @@ class Body extends StatelessWidget {
                         color: Color.fromRGBO(139, 148, 188, 1),
                         fontSize: 34,
                       ),
-                      children: [
-                        TextSpan(
-                          text: "/${questionSet.length}",
-                          style: const TextStyle(
-                            color: Color.fromRGBO(139, 148, 188, 1),
-                            fontSize: 24,
-                          ),
-                        ),
-                      ],
                     ),
                   ),
                 ),
